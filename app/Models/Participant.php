@@ -23,21 +23,16 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property string $email
  * @property string $phone
  *
- * @property string $fichierpieceidentite
- * @property integer $fichierpieceidentite_size
- * @property string $fichierpieceidentite_type
+ * @property string $fichier_administrative
+ * @property integer $fichier_administrative_size
+ * @property string $fichier_administrative_type
  *
- * @property string $fichiervideo
- * @property integer $fichiervideo_size
- * @property string $fichiervideo_type
- * @property string $fichiervideo_duree
- * @property string $fichiervideo_artwork
+ * @property string $fichier_dossier_candidature
+ * @property integer $fichier_dossier_candidature_size
+ * @property string $fichier_dossier_candidature_type
  *
  * @property string $complementinfos
  * @property boolean $reglementvalide
- *
- * @property boolean $videotelecharge
- * @property Carbon $videotelecharge_date
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -52,7 +47,6 @@ class Participant extends BaseModel implements Auditable
     public static function defaultRules() {
         return [
             'nom' => ['required'],
-            'nomgroupe' => ['required'],
             'email' => ['email','required'],
             'phone' => ['required'],
             'reglementvalide' => ['required'],
@@ -60,8 +54,14 @@ class Participant extends BaseModel implements Auditable
     }
     public static function createRules() {
         return array_merge(self::defaultRules(), [
-            'fichierpieceidentite' => ['required','file','max:'. Participant::getFileUploadMaxSize("ko")],
-            'fichiervideo' => ['required','file','max:' . Participant::getVideoUploadMaxSize("ko")],
+            'fichier_administrative' => [
+                'required','file','max:'. Participant::getFileUploadMaxSize("ko"),
+                'mimes:pdf,PDF,jpeg,png,bmp,gif,svg',
+            ],
+            'fichier_dossier_candidature' => [
+                'required','file','max:'. Participant::getFileUploadMaxSize("ko"),
+                'mimes:pdf,PDF,jpeg,png,bmp,gif,svg',
+            ],
         ]);
     }
     public static function updateRules($model) {
@@ -73,16 +73,20 @@ class Participant extends BaseModel implements Auditable
     public static function messagesRules() {
         return [
             'nom.required' => 'Prière de Renseigner votre Nom',
-            'nomgroupe.required' => 'Prière de Renseigner le Nom du Groupe',
             'email.required' => 'Prière de Renseigner votre adresse e-mail',
             'email.email' => 'Prière de Renseigner une adresse e-mail valide',
             'phone.required' => 'Prière de Renseigner votre Numéro de Phone',
-            'fichierpieceidentite.required' => 'Prière de télécharger votre fichier identité',
-            'fichierpieceidentite.file' => 'Le fichier identité doit etre un fichier valide',
-            'fichierpieceidentite.max' => 'La taille du fichier identité doit etre de ' . Participant::getFileUploadMaxSize("Mo") .' Mo max',
-            'fichiervideo.required' => 'Prière de télécharger votre vidéo',
-            'fichiervideo.file' => 'La vidéo doit etre un fichier valide',
-            'fichiervideo.max' => 'La taille du fichier video doit etre de ' . Participant::getVideoUploadMaxSize("Mo") .' Mo max',
+
+            'fichier_administrative.required' => 'Prière de télécharger votre fichier administratif',
+            'fichier_administrative.file' => 'Le fichier administratif doit etre un fichier valide',
+            'fichier_administrative.max' => 'La taille du fichier administratif doit etre de ' . Participant::getFileUploadMaxSize("Mo") .' Mo max',
+            'fichier_administrative.mimes' => 'Le fichier administratif doit etre au format PDF,jpeg,png,bmp,gif ou svg',
+
+            'fichier_dossier_candidature.required' => 'Prière de télécharger votre fichier dossier de candidature',
+            'fichier_dossier_candidature.file' => 'Le fichier dossier de candidature doit etre un fichier valide',
+            'fichier_dossier_candidature.max' => 'La taille du fichier dossier de candidature doit etre de ' . Participant::getFileUploadMaxSize("Mo") .' Mo max',
+            'fichier_dossier_candidature.mimes' => 'Le fichier dossier de candidature doit etre au format PDF,jpeg,png,bmp,gif ou svg',
+
             'reglementvalide.required' => 'Vous devez aprrouver le règlement !',
         ];
     }

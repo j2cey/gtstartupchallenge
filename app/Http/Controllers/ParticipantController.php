@@ -76,7 +76,7 @@ class ParticipantController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CreateParticipantRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateParticipantRequest $request)
@@ -96,16 +96,14 @@ class ParticipantController extends Controller
             'phone' => $formInput['phone'],
             'complementinfos' => $formInput['complementinfos'],
             'reglementvalide' => $request->getCheckValue('reglementvalide'),
-            'statut_video_id' => StatutVideo::default()->first()->id,
-            'statut_video_name' => StatutVideo::default()->first()->name
         ]);
 
         // verifyAndStoreFile( Request $request, $fieldname_rqst, $fieldname_db, $directory = 'unknown', $oldimage = ' ' )
-        $video_filename = $new_participant->verifyAndStoreFile($request, 'fichiervideo', 'fichiervideo', 'participants_fichiersvideos_dir');
+        $new_participant->verifyAndStoreFile($request, 'fichier_administrative', 'fichier_administrative', 'participants_fichier_administrative_dir');
 
-        $new_participant->verifyAndStoreFile($request, 'fichierpieceidentite', 'fichierpieceidentite', 'participants_fichiersidentite_dir');
+        $new_participant->verifyAndStoreFile($request, 'fichier_dossier_candidature', 'fichier_dossier_candidature', 'participants_fichier_dossier_candidature_dir');
 
-        $new_participant->setVideoDuration("fichiervideo_duree",'participants_fichiersvideos_dir',$new_participant->fichiervideo);
+        //$new_participant->setVideoDuration("fichiervideo_duree",'participants_fichiersvideos_dir',$new_participant->fichiervideo);
         //$new_participant->setVideoFormat("fichiervideo_type",'participants_fichiersvideos_dir',$new_participant->fichiervideo);
         //$new_participant->setVideoParameters($request,'participants_fichiersvideos_dir', 'fichiervideo', 'fichiervideo', 'fichiervideo_duree', 'fichiervideo_artwork');
         //$new_participant->setVideoParameters($request, 'participants_fichiersvideos_dir', 'fichiervideo', 'fichiervideo_duree', 'fichiervideo_artwork');

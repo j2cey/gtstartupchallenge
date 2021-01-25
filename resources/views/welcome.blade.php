@@ -171,7 +171,7 @@
     <section class="section" id="section-formulaire">
         <div class="container">
 
-            <participant-create :getfileuploadmaxsize_prop="{{ $getfileuploadmaxsize }}" :getvideouploadmaxsize_prop="{{ $getvideouploadmaxsize }}"></participant-create>
+            <participant-create :getfileuploadmaxsize_prop="{{ $getfileuploadmaxsize }}" ></participant-create>
 
         </div>
     </section>

@@ -17,10 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $getfileuploadmaxsize = Participant::getFileUploadMaxSize("Mo");
-    $getvideouploadmaxsize = Participant::getVideoUploadMaxSize("Mo");
     return view('welcome')
-        ->with('getfileuploadmaxsize', $getfileuploadmaxsize)
-        ->with('getvideouploadmaxsize', $getvideouploadmaxsize);
+        ->with('getfileuploadmaxsize', $getfileuploadmaxsize);
 })->name('home');
 
 Route::resource('settings','SettingController');

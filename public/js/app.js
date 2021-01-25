@@ -2217,7 +2217,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
-//
 var Participant = function Participant(participant) {
   _classCallCheck(this, Participant);
 
@@ -2225,8 +2224,8 @@ var Participant = function Participant(participant) {
   this.nomgroupe = participant.nomgroupe || '';
   this.email = participant.email || '';
   this.phone = participant.phone || '';
-  this.fichierpieceidentite = participant.fichierpieceidentite || '';
-  this.fichiervideo = participant.fichiervideo || '';
+  this.fichier_administrative = participant.fichier_administrative || '';
+  this.fichier_dossier_candidature = participant.fichier_dossier_candidature || '';
   this.complementinfos = participant.complementinfos || '';
   this.reglementvalide = participant.reglementvalide || '';
 };
@@ -2234,8 +2233,7 @@ var Participant = function Participant(participant) {
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ParticipantCreate",
   props: {
-    getfileuploadmaxsize_prop: 0,
-    getvideouploadmaxsize_prop: 0
+    getfileuploadmaxsize_prop: 0
   },
   mounted: function mounted() {
     this.editing = false;
@@ -2252,27 +2250,26 @@ var Participant = function Participant(participant) {
       errors: [],
       selectedVideoFile: null,
       selectedVideoFileName: "Selectionnez votre fichier identité...",
-      selectedIdentiteFile: null,
-      identiteFilePlaceholder: "Chargez votre fichier Identité...(" + this.getfileuploadmaxsize_prop + " Mo max)",
-      videoFilePlaceholder: "Chargez votre Vidéo...(" + this.getvideouploadmaxsize_prop + " Mo max)"
+      selectedFichierAdministrative: null,
+      fichierAdministrativePlaceholder: "Selectionnez le Premier Fichier...(" + this.getfileuploadmaxsize_prop + " Mo max)",
+      fichierDossierCandidaturePlaceholder: "Selectionnez le Second Fichier...(" + this.getfileuploadmaxsize_prop + " Mo max)",
+      selectedFichierDossierCandidature: null
     };
   },
   methods: {
-    handleIdentiteFileUpload: function handleIdentiteFileUpload(event) {
-      this.selectedIdentiteFile = event.target.files[0];
-      this.selectedIdentiteFileName = typeof this.selectedIdentiteFile !== 'undefined' ? this.selectedIdentiteFile.name : 'Selectionnez votre fichier identité...';
+    handleFichierAdministrativeUpload: function handleFichierAdministrativeUpload(event) {
+      this.selectedFichierAdministrative = event.target.files[0]; //this.selectedIdentiteFileName = (typeof this.selectedIdentiteFile !== 'undefined') ? this.selectedIdentiteFile.name : 'Selectionnez votre fichier identité...';
     },
-    handleVideoFileUpload: function handleVideoFileUpload(event) {
-      this.selectedVideoFile = event.target.files[0];
-      this.selectedVideoFileName = typeof this.selectedVideoFile !== 'undefined' ? this.selectedVideoFile.name : 'Selectionnez votre fichier video...';
+    handleFichierDossierCandidatureUpload: function handleFichierDossierCandidatureUpload(event) {
+      this.selectedFichierDossierCandidature = event.target.files[0]; //this.selectedVideoFileName = (typeof this.selectedVideoFile !== 'undefined') ? this.selectedVideoFile.name : 'Selectionnez votre fichier video...';
     },
     createParticipant: function createParticipant() {
       var _this = this;
 
       this.loading = true;
       var fd = new FormData();
-      fd.append('fichierpieceidentite', this.selectedIdentiteFile);
-      fd.append('fichiervideo', this.selectedVideoFile);
+      fd.append('fichier_administrative', this.selectedFichierAdministrative);
+      fd.append('fichier_dossier_candidature', this.selectedFichierDossierCandidature);
       this.participantForm.post('/participants', fd).then(function (newparticipant) {
         _this.loading = false;
         window.noty({
@@ -2290,12 +2287,12 @@ var Participant = function Participant(participant) {
       //this.participantForm.nomgroupe = ''
       //this.participantForm.email = ''
       //this.participantForm.phone = ''
-      //this.participantForm.fichierpieceidentite = ''
+      //this.participantForm.fichier_administrative = ''
       //this.participantForm.fichiervideo = ''
       //this.participantForm.complementinfos = ''
       //this.participantForm.reglementvalide = ''
       this.participantForm.reset();
-      this.$refs.fichierpieceidentite.value = '';
+      this.$refs.fichier_administrative.value = '';
       this.$refs.fichiervideo.value = '';
     }
   },
@@ -107807,15 +107804,17 @@ var render = function() {
       { staticClass: "col-12 col-lg-5 align-self-center text-center" },
       [
         _c("h3", { staticClass: "heading-alt fw-300" }, [
-          _vm._v("Formulaire d'Inscription")
+          _vm._v("Formulaire de candidature")
         ]),
         _c("br"),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Veuillez remplir correctement tous les champs de ce formulaire d’inscription et envoyer votre vidéo de participation après avoir lu entièrement  le règlement du jeu."
+            "Veuillez remplir le formulaire ci-joint et y attacher le dossier de votre startup sous le format de deux fichier « Compressé »  ne dépassant pas chacun 70 Mo.\n        "
           )
         ]),
+        _vm._v(" "),
+        _vm._m(0),
         _vm._v(" "),
         _c("br"),
         _vm._v(" "),
@@ -107835,7 +107834,7 @@ var render = function() {
           [
             _c("div", { staticClass: "form-group" }, [
               _c("div", { staticClass: "input-group" }, [
-                _vm._m(0),
+                _vm._m(1),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -107881,52 +107880,6 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.participantForm.nomgroupe,
-                    expression: "participantForm.nomgroupe"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  name: "nomgroupe",
-                  placeholder: "Nom du Groupe"
-                },
-                domProps: { value: _vm.participantForm.nomgroupe },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.participantForm,
-                      "nomgroupe",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-sm-left" }, [
-                _vm.participantForm.errors.has("nomgroupe")
-                  ? _c("small", {
-                      staticClass: "text text-danger",
-                      attrs: { role: "alert" },
-                      domProps: {
-                        textContent: _vm._s(
-                          _vm.participantForm.errors.get("nomgroupe")
-                        )
-                      }
-                    })
-                  : _vm._e()
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
               _c("div", { staticClass: "input-group" }, [
                 _c("input", {
                   directives: [
@@ -107959,7 +107912,7 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm._m(2)
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "text-sm-left" }, [
@@ -108024,32 +107977,34 @@ var render = function() {
                 staticClass: "form-control file-value",
                 attrs: {
                   type: "text",
-                  placeholder: _vm.identiteFilePlaceholder,
+                  placeholder: _vm.fichierAdministrativePlaceholder,
                   readonly: ""
                 }
               }),
               _vm._v(" "),
               _c("input", {
-                ref: "fichierpieceidentite",
+                ref: "fichier_administrative",
                 attrs: {
                   type: "file",
-                  name: "fichierpieceidentite",
-                  id: "fichierpieceidentite",
+                  name: "fichier_administrative",
+                  id: "fichier_administrative",
                   multiple: ""
                 },
-                on: { change: _vm.handleIdentiteFileUpload }
+                on: { change: _vm.handleFichierAdministrativeUpload }
               }),
               _vm._v(" "),
-              _vm._m(2),
+              _vm._m(3),
               _vm._v(" "),
               _c("p", { staticClass: "text-sm-left" }, [
-                _vm.participantForm.errors.has("fichierpieceidentite")
+                _vm.participantForm.errors.has("fichier_administrative")
                   ? _c("small", {
                       staticClass: "text text-danger",
                       attrs: { role: "alert" },
                       domProps: {
                         textContent: _vm._s(
-                          _vm.participantForm.errors.get("fichierpieceidentite")
+                          _vm.participantForm.errors.get(
+                            "fichier_administrative"
+                          )
                         )
                       }
                     })
@@ -108062,32 +108017,34 @@ var render = function() {
                 staticClass: "form-control file-value",
                 attrs: {
                   type: "text",
-                  placeholder: _vm.videoFilePlaceholder,
+                  placeholder: _vm.fichierDossierCandidaturePlaceholder,
                   readonly: ""
                 }
               }),
               _vm._v(" "),
               _c("input", {
-                ref: "fichiervideo",
+                ref: "fichier_dossier_candidature",
                 attrs: {
                   type: "file",
-                  name: "fichiervideo",
-                  id: "fichiervideo",
+                  name: "fichier_dossier_candidature",
+                  id: "fichier_dossier_candidature",
                   multiple: ""
                 },
-                on: { change: _vm.handleVideoFileUpload }
+                on: { change: _vm.handleFichierDossierCandidatureUpload }
               }),
               _vm._v(" "),
-              _vm._m(3),
+              _vm._m(4),
               _vm._v(" "),
               _c("p", { staticClass: "text-sm-left" }, [
-                _vm.participantForm.errors.has("fichiervideo")
+                _vm.participantForm.errors.has("fichier_dossier_candidature")
                   ? _c("small", {
                       staticClass: "text text-danger",
                       attrs: { role: "alert" },
                       domProps: {
                         textContent: _vm._s(
-                          _vm.participantForm.errors.get("fichiervideo")
+                          _vm.participantForm.errors.get(
+                            "fichier_dossier_candidature"
+                          )
                         )
                       }
                     })
@@ -108191,11 +108148,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("span", { staticClass: "custom-control-indicator" }),
                 _vm._v(" "),
-                _c("span", { staticClass: "custom-control-description" }, [
-                  _vm._v(
-                    "Je reconnais avoir pris connaissance du règlement du jeu Montre Ton Moov et m’engage, sans réserve à en respecter les dispositions du fait de mon inscription."
-                  )
-                ])
+                _vm._m(5)
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "text-sm-left" }, [
@@ -108231,10 +108184,28 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _vm._m(4)
+    _vm._m(6)
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "text-sm-left" }, [
+      _c("li", [
+        _vm._v(
+          "Premier : Administrative , contenant les pièces administratives de votre startup."
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _vm._v(
+          "Second  : Dossier de candidature , contenant une présentation de votre startup , Etude de marché , business plan … et tout autre document que vous estimiez capable d’enrechir votre candidature ."
+        )
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -108282,6 +108253,18 @@ var staticRenderFns = [
           attrs: { type: "button" }
         },
         [_c("i", { staticClass: "fa fa-upload" })]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "custom-control-description" }, [
+      _vm._v("Je reconnais avoir pris connaissance du règlement du Concours "),
+      _c("strong", [_vm._v("Moov Africa GT Startup Challenge")]),
+      _vm._v(
+        " et m’engage, sans réserve à en respecter les dispositions du fait de mon inscription."
       )
     ])
   },

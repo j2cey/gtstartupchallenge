@@ -41,8 +41,8 @@ return [
 
     'debug' => (bool) env('APP_DEBUG', false),
 
-    'participants_fichiersvideos_dir' => env('PARTICIPANTS_FICHIERSVIDEO_DIR', 'uploads/participants/fichiersvideos'),
-    'participants_fichiersidentite_dir' => env('PARTICIPANTS_FICHIERSIDENTITE_DIR', 'uploads/participants/fichiersidentite'),
+    'participants_fichier_administrative_dir' => env('PARTICIPANTS_FICHIER_ADMINISTRATIVE_DIR', 'uploads/participants/fichieradministratifs'),
+    'participants_fichier_dossier_candidature_dir' => env('PARTICIPANTS_FICHIER_DOSSIER_CANDIDATURE_DIR', 'uploads/participants/fichierdossierscandidature'),
     'participants_pdfs_dir' => env('PARTICIPANTS_PDFS_DIR', 'uploads/pdf'),
 
     /*
