@@ -55,10 +55,10 @@
                     <p class="feature-icon text-info"><i class="icon-scope"></i></p>
                     <h6>Principe</h6>
                     <ul class="list-unstyled fs-12">
-                        Moov Africa – Gabon télécom organise un challenge pour désigner la meilleure startup dans le digital au Gabon. Le challenge se déroule sur trois phases :
+                        Moov Africa – Gabon télécom organise un challenge pour célébrer les meilleures startups dans le digital au Gabon. Le challenge se déroule sur trois phases :
                         <ul class="contacts-list-status fs-12">
                             <li>Appel à candidature : 30 startups sont présélectionnés pour la suite de la compétition.</li>
-                            <li>Phase dite d’accompagnement, pendant laquelle  un panel de 10 startup sont sélectionnées parmi le panel  pour un accompagnement approfondi dans différents thèmes : Marketing, Commercial, juridique..</li>
+                            <li>Phase dite d’accompagnement, pendant laquelle  un panel de 10 startup sont sélectionnées parmi les startups présélectionnés pour un accompagnement approfondi dans différents thèmes : Marketing, Commercial, juridique..</li>
                             <li>Une grande finale, pendant laquelle 3 startups sont choisis par un jury qualifié à l’issue de présentation directes.</li>
                         </ul>
                     </ul>
@@ -102,7 +102,7 @@
                     <h6>Sélection des Gagnants</h6>
                     <p class="text text-justify">
                         <small class="text text-success">Etape 1:</small>
-                        <span class="fs-12">Au plus 30 startups à fort potentiel et qui répondent aux critères d'éligibilité seront présélectionnées sur la base du formulaire de candidature. Des informations complémentaires et/ou entretien peuvent être demandés lors de la phase d’évaluation des candidatures.</span>
+                        <span class="fs-12">Au plus 30 startups à fort potentiel et qui répondent aux critères d'éligibilité seront présélectionnées sur la base du formulaire de candidature. Des informations complémentaires et/ou entretiens peuvent être demandés lors de la phase d’évaluation des candidatures.</span>
                         <br>
                         <small class="text text-success">Etape 2:</small>
                         <span class="fs-12">
