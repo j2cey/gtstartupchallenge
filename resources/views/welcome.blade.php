@@ -111,37 +111,15 @@
                             Les startups présélectionnées seront notés par un jury interne sur critère de sélection objectifs précisés dans le règlement intérieur (ci-joint). Des informations complémentaires peuvent être demandées en préparation à la présentation devant le comité de sélection. A l’issu de cette phase, 10 startups seront choisis pour se qualifier à la phase de l’Accompagnement.
                             <br>
                             Les 10 startups sélectionnées seront accompagnées par Moov Africa Gabon Télécom à travers plusieurs actions et formations dans différents domaines ( plus de détail dans le règlement intérieur )
-                            <ul class="list-group-flush fs-12">
-                                <li>Qualifications et expérience de l'équipe</li>
-                                <li>Réalisations</li>
-                                <li>Idée et/ou modèle d'entreprise innovant et scalable</li>
-                                <li>Opportunités de marché</li>
-                                <li>Validation de marché</li>
-                                <li>Présenter un prototype convaincant</li>
-                            </ul>
-                            <span class="fs-12">
-                            Les 10 startups sélectionnées seront accompagnées par Moov Africa Gabon Télécom à travers:
-                            </span>
-                            <ul class="list-group-flush fs-12">
-                                <li>
-                                    Des Séances de formations pratiques assurées par des cabinets externes des responsables de Moov Africa - Gabon Télécom portant sur le Volet :
-                                    <ul>
-                                        <li>Juridique</li>
-                                        <li>Marketing</li>
-                                        <li>Digitale</li>
-                                        <li>Financier</li>
-                                        <li>Sécurité</li>
-                                    </ul>
-                                </li>
-                                <li>Accompagnement personnalisé par des mentors, et experts de l’écosystème entrepreneurial au Gabon</li>
-                                <li>Possibilité de participation à des événements et boot-camps nationaux et internationaux via des programmes partenaires</li>
-                            </ul>
                         </span>
                         <small class="fw-600 fs-12 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/04/21 au 31/05/21</small>
                         <br>
                         <small class="text text-success">Etape Grande Finale:</small>
                         <span class="fs-12">
                             À l'issu du programme, les 10 startups auront l'opportunité de présenter leurs projets devant un comité pour choisir 3 grands gagnants.
+
+                            <small class="fw-600 fs-12 text-danger"> La date serait arrêtée ultérieurement </small>
+                            .
                         </span>
                     </p>
                 </div>
