@@ -107810,7 +107810,7 @@ var render = function() {
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Veuillez remplir le formulaire ci-joint et y attacher le dossier de votre startup sous le format de deux fichier « Compressé »  ne dépassant pas chacun 70 Mo.\n        "
+            "Veuillez remplir le formulaire ci-joint et y attacher le dossier de votre startup sous le format de deux fichiers « Compressés »  ne dépassant pas chacun 70 Mo.\n        "
           )
         ]),
         _vm._v(" "),

@@ -3,7 +3,7 @@
 
         <div class="col-12 col-lg-5 align-self-center text-center">
             <h3 class="heading-alt fw-300">Formulaire de candidature</h3><br>
-            <p>Veuillez remplir le formulaire ci-joint et y attacher le dossier de votre startup sous le format de deux fichier « Compressé »  ne dépassant pas chacun 70 Mo.
+            <p>Veuillez remplir le formulaire ci-joint et y attacher le dossier de votre startup sous le format de deux fichiers « Compressés »  ne dépassant pas chacun 70 Mo.
             </p>
             <ul class="text-sm-left">
                 <li>Premier : Administrative , contenant les pièces administratives de votre startup.</li>

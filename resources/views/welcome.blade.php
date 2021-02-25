@@ -58,7 +58,7 @@
                         Moov Africa – Gabon télécom organise un challenge pour célébrer les meilleures startups dans le digital au Gabon. Le challenge se déroule sur trois phases :
                         <ul class="contacts-list-status fs-12">
                             <li>Appel à candidature : 30 startups sont présélectionnés pour la suite de la compétition.</li>
-                            <li>Phase dite d’accompagnement, pendant laquelle  un panel de 10 startup sont sélectionnées parmi les startups présélectionnés pour un accompagnement approfondi dans différents thèmes : Marketing, Commercial, juridique..</li>
+                            <li>Phase dite d’accompagnement, pendant laquelle un panel de 10 startup sont sélectionnées les présélectionnés pour un accompagnement approfondi.</li>
                             <li>Une grande finale, pendant laquelle 3 startups sont choisis par un jury qualifié à l’issue de présentation directes.</li>
                         </ul>
                     </ul>
@@ -68,7 +68,7 @@
                     <p class="feature-icon text-info"><i class="icon-presentation"></i></p>
                     <h6>Eligibilité</h6>
                     <ul class="list-unstyled fs-12 text-justify">
-                        Les startups éligibles au programme doivent basées au Gabon  ou avoir une partie de l'activité au Gabon  avec structure juridique de droit gabonais et doivent  opérer dans les secteurs suivants :
+                        Les startups éligibles au programme doivent basées au Gabon ou avoir une partie de l'activité au Gabon avec structure juridique de droit gabonais et doivent opérer dans les secteurs suivants :
                         <ul class="contacts-list-status">
                             <li>IOT : internet des objets</li>
                             <li>Health-Tech : solutions digitales pour la santé</li>
@@ -104,9 +104,13 @@
                         <small class="text text-success">Etape 1:</small>
                         <span class="fs-12">Au plus 30 startups à fort potentiel et qui répondent aux critères d'éligibilité seront présélectionnées sur la base du formulaire de candidature. Des informations complémentaires et/ou entretiens peuvent être demandés lors de la phase d’évaluation des candidatures.</span>
                         <br>
+                        <small class="fw-600 fs-12 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/03/21 au 31/03/21</small>
+                        <br>
                         <small class="text text-success">Etape 2:</small>
                         <span class="fs-12">
-                            Les startups présélectionnées seront notés par un jury interne sur des critères objectifs détaillé dans les critère de sélection en bas. Des informations complémentaires peuvent être demandées en préparation à la présentation devant le comité de sélection. A l’issu de cette phase, 10 startup seront choisi pour  se qualifier à la phase de l’Accompagnement. La sélection des 10 startups bénéficiaires du programme se fait sur la base des critères suivants:
+                            Les startups présélectionnées seront notés par un jury interne sur critère de sélection objectifs précisés dans le règlement intérieur (ci-joint). Des informations complémentaires peuvent être demandées en préparation à la présentation devant le comité de sélection. A l’issu de cette phase, 10 startups seront choisis pour se qualifier à la phase de l’Accompagnement.
+                            <br>
+                            Les 10 startups sélectionnées seront accompagnées par Moov Africa Gabon Télécom à travers plusieurs actions et formations dans différents domaines ( plus de détail dans le règlement intérieur )
                             <ul class="list-group-flush fs-12">
                                 <li>Qualifications et expérience de l'équipe</li>
                                 <li>Réalisations</li>
@@ -133,6 +137,8 @@
                                 <li>Possibilité de participation à des événements et boot-camps nationaux et internationaux via des programmes partenaires</li>
                             </ul>
                         </span>
+                        <small class="fw-600 fs-12 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/04/21 au 31/05/21</small>
+                        <br>
                         <small class="text text-success">Etape Grande Finale:</small>
                         <span class="fs-12">
                             À l'issu du programme, les 10 startups auront l'opportunité de présenter leurs projets devant un comité pour choisir 3 grands gagnants.
