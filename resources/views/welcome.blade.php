@@ -54,9 +54,9 @@
                 <div class="col-12 col-md-4 feature-2">
                     <p class="feature-icon text-info"><i class="icon-scope"></i></p>
                     <h6>Principe</h6>
-                    <ul class="list-unstyled fs-12">
+                    <ul class="list-unstyled fs-14">
                         Moov Africa – Gabon télécom organise un challenge pour célébrer les meilleures startups dans le digital au Gabon. Le challenge se déroule sur trois phases :
-                        <ul class="contacts-list-status fs-12">
+                        <ul class="contacts-list-status fs-14">
                             <li>Appel à candidature : 30 startups sont présélectionnés pour la suite de la compétition.</li>
                             <li>Phase dite d’accompagnement, pendant laquelle un panel de 10 startup sont sélectionnées les présélectionnés pour un accompagnement approfondi.</li>
                             <li>Une grande finale, pendant laquelle 3 startups sont choisis par un jury qualifié à l’issue de présentation directes.</li>
@@ -67,7 +67,7 @@
                 <div class="col-12 col-md-4 feature-2">
                     <p class="feature-icon text-info"><i class="icon-presentation"></i></p>
                     <h6>Eligibilité</h6>
-                    <ul class="list-unstyled fs-12 text-justify">
+                    <ul class="list-unstyled fs-14 text-justify">
                         Les startups éligibles au programme doivent basées au Gabon ou avoir une partie de l'activité au Gabon avec structure juridique de droit gabonais et doivent opérer dans les secteurs suivants :
                         <ul class="contacts-list-status">
                             <li>IOT : internet des objets</li>
@@ -84,7 +84,7 @@
                 <div class="col-12 col-md-4 feature-2">
                     <p class="feature-icon text-info"><i class="icon-gears"></i></p>
                     <h6>Règlement</h6>
-                    <p class="text fs-12 text-info">Cliquer ci-dessous pour consulter le ...
+                    <p class="text fs-14 text-info">Cliquer ci-dessous pour consulter le ...
                         <br>
                         <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/Reglement_Startup_Challenge_MoovAfrica_GT_VF.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
                     </p>
@@ -102,23 +102,23 @@
                     <h6>Sélection des Gagnants</h6>
                     <p class="text text-justify">
                         <small class="text text-success">Etape 1:</small>
-                        <span class="fs-12">Au plus 30 startups à fort potentiel et qui répondent aux critères d'éligibilité seront présélectionnées sur la base du formulaire de candidature. Des informations complémentaires et/ou entretiens peuvent être demandés lors de la phase d’évaluation des candidatures.</span>
+                        <span class="fs-14">Au plus 30 startups à fort potentiel et qui répondent aux critères d'éligibilité seront présélectionnées sur la base du formulaire de candidature. Des informations complémentaires et/ou entretiens peuvent être demandés lors de la phase d’évaluation des candidatures.</span>
                         <br>
-                        <small class="fw-600 fs-12 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/03/21 au 31/03/21</small>
+                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/03/21 au 31/03/21</small>
                         <br>
                         <small class="text text-success">Etape 2:</small>
-                        <span class="fs-12">
+                        <span class="fs-14">
                             Les startups présélectionnées seront notés par un jury interne sur critère de sélection objectifs précisés dans le règlement intérieur (ci-joint). Des informations complémentaires peuvent être demandées en préparation à la présentation devant le comité de sélection. A l’issu de cette phase, 10 startups seront choisis pour se qualifier à la phase de l’Accompagnement.
                             <br>
                             Les 10 startups sélectionnées seront accompagnées par Moov Africa Gabon Télécom à travers plusieurs actions et formations dans différents domaines ( plus de détail dans le règlement intérieur )
                         </span>
-                        <small class="fw-600 fs-12 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/04/21 au 31/05/21</small>
+                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/04/21 au 31/05/21</small>
                         <br>
                         <small class="text text-success">Etape Grande Finale:</small>
-                        <span class="fs-12">
+                        <span class="fs-14">
                             À l'issu du programme, les 10 startups auront l'opportunité de présenter leurs projets devant un comité pour choisir 3 grands gagnants.
 
-                            <small class="fw-600 fs-12 text-danger"> La date serait arrêtée ultérieurement </small>
+                            <small class="fw-600 fs-14 text-danger"> La date serait arrêtée ultérieurement </small>
                             .
                         </span>
                     </p>
@@ -127,9 +127,9 @@
                 <div class="col-12 col-md-4 feature-2">
                     <p class="feature-icon text-info"><i class="icon-gift"></i></p>
                     <h6>Attribution des Lots</h6>
-                    <ul class="list-unstyled fs-12">
+                    <ul class="list-unstyled fs-14">
                         Les 10 startups finalistes choisis pour participer à la grande final auront droit chacun à un packages incluant:
-                        <ul class="contacts-list-status fs-12">
+                        <ul class="contacts-list-status fs-14">
                             <li>Un an d’abonnement haut débit internet</li>
                             <li>1 an abonnement plateforme AL-PHORM</li>
                             <li>1 pack sécurité internet.</li>
@@ -137,13 +137,13 @@
                         Les lauréats des trois (3) premiers projets classés par le jury de la compétition finale se verront attribuer un prix supplémentaire lors de la de la cérémonie de la grande finale , A savoir:
                         <br>
                         <small class="text text-warning">1er Prix :</small>
-                        <span class="fs-12">Subvention de 6 Millions de FCFA + Un PC Professionnel.</span>
+                        <span class="fs-14">Subvention de 6 Millions de FCFA + Un PC Professionnel.</span>
                         <br>
                         <small class="text text-warning">2e Prix :</small>
-                        <span class="fs-12">Subvention de  3 Millions de FCFA + Un PC Professionnel.</span>
+                        <span class="fs-14">Subvention de  3 Millions de FCFA + Un PC Professionnel.</span>
                         <br>
                         <small class="text text-warning">3e Prix :</small>
-                        <span class="fs-12">Subvention de  2 Millions de FCFA + Un PC Professionnel.</span>
+                        <span class="fs-14">Subvention de  2 Millions de FCFA + Un PC Professionnel.</span>
                     </ul>
                 </div>
 
