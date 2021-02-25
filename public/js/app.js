@@ -108201,7 +108201,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("li", [
         _vm._v(
-          "Second  : Dossier de candidature , contenant une présentation de votre startup , Etude de marché , business plan … et tout autre document que vous estimiez capable d’enrechir votre candidature ."
+          "Second  : Dossier de candidature, contenant une présentation de votre startup, Etude de marché , business plan … et tout autre document que vous estimeriez capable d’enrichir votre candidature ."
         )
       ])
     ])

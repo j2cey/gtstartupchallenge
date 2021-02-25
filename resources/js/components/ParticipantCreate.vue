@@ -7,7 +7,7 @@
             </p>
             <ul class="text-sm-left">
                 <li>Premier : Administrative , contenant les pièces administratives de votre startup.</li>
-                <li>Second  : Dossier de candidature , contenant une présentation de votre startup , Etude de marché , business plan … et tout autre document que vous estimiez capable d’enrechir votre candidature .</li>
+                <li>Second  : Dossier de candidature, contenant une présentation de votre startup, Etude de marché , business plan … et tout autre document que vous estimeriez capable d’enrichir votre candidature .</li>
             </ul>
             <br>
             <form class="form-horizontal" @submit.prevent @keydown="participantForm.errors.clear()">
