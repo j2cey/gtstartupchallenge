@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <header class="header header-inverse h-fullscreen pb-80" style="background-image: url({{ asset('assets/img/Business_People_Team_With_World_Map.jpg') }})" data-overlay="3">
+    <header class="header header-inverse h-fullscreen pb-80" style="background-image: url({{ asset('assets/img/Moov-Africa_Start-UP_Web_1542_759px.jpg') }});" data-overlay="4">
 
         <div class="container text-center">
 
