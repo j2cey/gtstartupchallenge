@@ -5,9 +5,8 @@
 
         <div class="container text-center">
 
-            <div class="row h-full">
-                <div class="col-12 col-lg-8 offset-lg-2 align-self-center">
-
+            <div class="row">
+                <div class="col-6">
                     <h1 class="display-4">
                         Concours
                         <p>« Moov Africa GT Startup Challenge »</p>
@@ -16,14 +15,11 @@
 
                     <p class="lead text-white fs-20">
                         Faites preuve d’innovation et partagez le projet de votre startup sur « <span class="fw-400"><span class="mark-border">Moov Africa GT Startup Challenge</span></span> ».</p>
-
-                    <h3 class="text text-primary">
-                        Et gagnez jusqu'à 6 Million FCFA +  PC portable dernière génération en Plus de Plusieurs avantages
-                    </h3>
-
                 </div>
+            </div>
 
-                <div class="col-12 align-self-end text-center">
+            <div class="row">
+                <div class="col-6">
                     <a class="scroll-down-2 scroll-down-inverse" href="#" data-scrollto="section-reglement">
                         <span></span>
                     </a>
@@ -31,6 +27,16 @@
                     <div class="col-12 align-self-end text-center">
                         <a class="btn btn-lg btn-round w-200 btn-secondary-outline mr-16" href="#" data-scrollto="section-reglement">Cliquez Ici</a>
                     </div>
+                </div>
+            </div>
+
+            <div class="row h-full">
+                <div class="col-12 col-lg-8 offset-lg-2 align-self-center">
+
+                </div>
+
+                <div class="col-12 align-self-end text-center">
+
                 </div>
 
             </div>
@@ -86,7 +92,7 @@
                     <h6>Règlement</h6>
                     <p class="text fs-14 text-info">Cliquer ci-dessous pour consulter le ...
                         <br>
-                        <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/Reglement_Startup_Challenge_MoovAfrica_GT_VF.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
+                        <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/Reglement_Startup_Challenge_MoovAfrica_GT_VF_20210303_1.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
                     </p>
                     <p>
                         <a class="btn btn-xs btn-round w-200 btn-warning mr-16" href="#" data-scrollto="section-formulaire">Inscrivez-vous</a>
