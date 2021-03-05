@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <header class="header header-inverse h-fullscreen pb-80" style="background-image: url({{ asset('assets/img/Moov-Africa_Start-UP_Web_1542_759px.jpg') }});" data-overlay="4">
+    <header class="header header-inverse h-fullscreen pb-80" style="background-image: url({{ asset('assets/img/Moov-Africa_Start-UP_Web_1542_759px_20210304.jpg') }});" data-overlay="4">
 
         <div class="container text-center">
 
@@ -92,7 +92,7 @@
                     <h6>Règlement</h6>
                     <p class="text fs-14 text-info">Cliquer ci-dessous pour consulter le ...
                         <br>
-                        <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/Reglement_Startup_Challenge_MoovAfrica_GT_VF_20210303_1.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
+                        <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/Reglement_Startup_Challenge_MoovAfrica_GT_VF_20210304_1.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
                     </p>
                     <p>
                         <a class="btn btn-xs btn-round w-200 btn-warning mr-16" href="#" data-scrollto="section-formulaire">Inscrivez-vous</a>
@@ -110,7 +110,7 @@
                         <small class="text text-success">Etape 1:</small>
                         <span class="fs-14">Au plus 30 startups à fort potentiel répondant aux critères d'éligibilité seront présélectionnées sur la base du formulaire de candidature. Des informations complémentaires et/ou entretiens peuvent être demandés lors de la phase d’évaluation des candidatures.</span>
                         <br>
-                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/03/21 au 31/03/21</small>
+                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période: du 08/03/21 au 31/03/21</small>
                         <br>
                         <small class="text text-success">Etape 2:</small>
                         <span class="fs-14">
@@ -134,7 +134,7 @@
                     <p class="feature-icon text-info"><i class="icon-gift"></i></p>
                     <h6>Attribution des Lots</h6>
                     <ul class="list-unstyled fs-14">
-                        Les 10 startups finalistes choisies pour participer à la grande finale auront droit chacun à un package incluant:
+                        Les 10 startups finalistes auront droit chacun à un package incluant( Enveloppe remise par Moov Africa –GT) :
                         <ul class="contacts-list-status fs-14">
                             <li>Un an d’abonnement haut débit internet</li>
                             <li>1 an abonnement plateforme AL-PHORM</li>
@@ -143,13 +143,13 @@
                         Les lauréats des trois (3) premiers projets classés par le jury de la compétition finale se verront attribuer un prix supplémentaire lors de la cérémonie de la grande finale , à savoir:
                         <br>
                         <small class="text text-warning">1er Prix :</small>
-                        <span class="fs-14">Subvention de 6 Millions de FCFA + Un PC Professionnel.</span>
+                        <span class="fs-14">Subvention de 10 Millions de FCFA (Remis par Moov Africa-Gabon Telecom).</span>
                         <br>
                         <small class="text text-warning">2e Prix :</small>
-                        <span class="fs-14">Subvention de  3 Millions de FCFA + Un PC Professionnel.</span>
+                        <span class="fs-14">Subvention de 6 Millions de FCFA (Remis par Huawei).</span>
                         <br>
                         <small class="text text-warning">3e Prix :</small>
-                        <span class="fs-14">Subvention de  2 Millions de FCFA + Un PC Professionnel.</span>
+                        <span class="fs-14">Subvention de 4 Millions de FCFA (Remis par BS Gabon).</span>
                     </ul>
                 </div>
 
