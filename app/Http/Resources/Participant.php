@@ -15,11 +15,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $email
  * @property string $phone
  *
- * @property string $fichierpieceidentite
- * @property string $fichiervideo
- * @property string $fichiervideo_type
- * @property integer $fichiervideo_size
- * @property string $fichiervideo_duree
+ * @property string $fichier_administrative
+ * @property integer $fichier_administrative_size
+ * @property string $fichier_administrative_type
+ *
+ * @property string $fichier_dossier_candidature
+ * @property integer $fichier_dossier_candidature_size
+ * @property string $fichier_dossier_candidature_type
  *
  * @property string $complementinfos
  * @property string $statut_video_name
@@ -46,7 +48,8 @@ class Participant extends JsonResource
             'fichiervideo_duree' => $this->fichiervideo_duree,
             'complementinfos' => $this->complementinfos,
             'statut_video_name' => $this->statut_video_name,
-            'fichieridentite_url' => '/uploads/participants/fichiersidentite/' . $this->fichierpieceidentite,
+            'fichieradministratifs_url' => '/uploads/participants/fichieradministratifs/' . $this->fichier_administrative,
+            'fichierdossierscandidature_url' => '/uploads/participants/fichierdossierscandidature/' . $this->fichier_dossier_candidature,
             'edit_url' => route('participant.edit', $this->id),
             'destroy_url' => route('participant.getvideo', $this->uuid),
         ];

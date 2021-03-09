@@ -9,7 +9,7 @@ trait BaseTrait
 
     public static function bootBaseTrait()
     {
-        static::saving(function ($model) {
+        static::creating(function ($model) {
             if (is_null($model->status_id)) {
                 $model->setDefaultStatus();
             }

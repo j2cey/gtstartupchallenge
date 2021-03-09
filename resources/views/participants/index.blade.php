@@ -24,7 +24,6 @@
                             order_by: 'id:desc',
                             datecreate_du: '',
                             datecreate_au: '',
-                            statutvideos: '',
                             }"
                         v-slot="{ params, update, change, clear, processing }"
                     >
@@ -53,7 +52,7 @@
                                     <vue2-datepicker id="datecreate_au" lang="fr" style="width: 90%; height: 90%;" v-model="params.datecreate_au" format="YYYY-MM-DD" @change="change"></vue2-datepicker>
                                 </div>
                             </div>
-                            <div class="tw-col-span-4 md:tw-col-span-2">
+                            <div class="tw-col-span-4 md:tw-col-span-4">
                                 <label class="tw-block tw-uppercase tw-tracking-wide tw-text-gray-700 tw-text-xs tw-font-bold tw-mb-2" for="search">
                                     Recherche
                                 </label>
@@ -77,35 +76,6 @@
                                         class="tw-appearance-none tw-block tw-w-full tw-bg-gray-200 focus:tw-bg-white tw-text-gray-700 tw-border tw-border-gray-400 focus:tw-border-gray-500 tw-rounded-sm tw-py-3 tw-pl-4 tw-pr-10 tw-mb-3 md:tw-mb-0 tw-leading-tight focus:tw-outline-none"
                                         placeholder="Rechercher..."
                                     >
-                                </div>
-                            </div>
-
-                            <div class="tw-col-span-4 md:tw-col-span-2">
-                                <label
-                                    for="statutvideos"
-                                    class="tw-block tw-uppercase tw-tracking-wide tw-text-gray-700 tw-text-xs tw-font-bold tw-mb-2"
-                                >
-                                    Statut Vidéo
-                                </label>
-                                <div class="tw-inline-flex">
-                                    <div class="tw-relative">
-                                        <select
-                                            v-model="params.statutvideos"
-                                            @change="change"
-                                            id="statutvideos"
-                                            class="tw-appearance-none tw-block tw-w-full tw-bg-gray-200 focus:tw-bg-white tw-text-gray-700 tw-border tw-border-gray-400 focus:tw-border-gray-500 tw-rounded-sm tw-py-3 tw-pl-4 tw-pr-8 tw-leading-tight focus:tw-outline-none"
-
-                                        >
-                                            <option
-                                                v-for="statutvideo in {{ $statutvideos }}"
-                                                :value="statutvideo.id"
-                                            >@{{ statutvideo.name }}</option>
-                                        </select>
-                                        <select-angle></select-angle>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <button type="button" id="statutvideos_clear" name="statutvideos_clear" class="btn btn-default" @click="[params.statutvideos= '', change()]"><i class="fa fa-times"></i></button>
-                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -140,11 +110,6 @@
                                             <div class="tw-font-bold tw-text-xl tw-mb-2">@{{ record.nomgroupe }}</div>
                                             <div class="tw-font-bold tw-text-xs tw-mb-2"><i class="fa fa-user"></i>
                                                 @{{ record.nom }}
-                                                <a
-                                                    :href="record.fichieridentite_url"
-                                                    class="tw-inline-block tw-text-red-500">
-                                                    <i class="fa fa-paperclip"></i>
-                                                </a>
                                             </div>
                                             <div class="tw-font-thin tw-text-xs tw-mb-2"><i class="fa fa-phone"></i> @{{ record.phone }}</div>
                                             <div class="tw-font-thin tw-text-xs tw-mb-2"><i class="fa fa-envelope"></i> @{{ record.email }}</div>
@@ -154,13 +119,18 @@
                                         <div class="tw-px-6 tw-pt-4 tw-pb-2">
                                             <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-thin tw-text-gray-700 tw-mr-2 tw-mb-2">
                                                 <a
-                                                    :href="record.destroy_url"
-                                                    class="tw-inline-block tw-text-red-500">
-                                                <i class="fa fa-file-video"></i> @{{ record.fichiervideo_type }}
-                                            </a>
+                                                    :href="record.fichieradministratifs_url"
+                                                    class="tw-inline-block tw-text-blue-500">
+                                                    <i class="fa fa-file-pdf-o"></i> Fichier Administratif
+                                                </a>
                                             </span>
-                                            <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-thin tw-text-gray-700 tw-mr-2 tw-mb-2"><i class="fa fa-file"></i> @{{ record.fichiervideo_size }}</span>
-                                            <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-thin tw-text-gray-700 tw-mr-2 tw-mb-2"><i class="fa fa-clock"></i> @{{ record.fichiervideo_duree }}</span>
+                                            <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-thin tw-text-gray-700 tw-mr-2 tw-mb-2">
+                                                <a
+                                                    :href="record.fichierdossierscandidature_url"
+                                                    class="tw-inline-block tw-text-red-500">
+                                                    <i class="fa fa-file-text-o"></i> Dossier Candidature
+                                                </a>
+                                            </span>
                                         </div>
                                     </div>
 

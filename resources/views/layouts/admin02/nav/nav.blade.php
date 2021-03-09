@@ -2,7 +2,7 @@
     <div class="container">
         <a href="/" class="navbar-brand"
            style="display: flex; align-items: center; justify-content: center; height: 100%; ">
-            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="brand-image elevation-3"
+            <img src="{{ asset('assets/img/Logo_Moov_Africa_Fond_Blanc.png') }}" alt="Logo" class="brand-image elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">{{ config('app.name', 'Admin-IT') }}</span>
         </a>

@@ -39,7 +39,7 @@ use OwenIt\Auditing\Contracts\Auditable;
  */
 class Participant extends BaseModel implements Auditable
 {
-    use HasFile, HasVideo, HasData, \OwenIt\Auditing\Auditable;
+    use HasFile, HasData, \OwenIt\Auditing\Auditable;
     protected $guarded = [];
 
     #region Validation Rules

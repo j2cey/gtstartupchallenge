@@ -21,7 +21,7 @@ class ParticipantSearch extends Search
         if ($this->params->search->hasFilter()) {
             $datecreatedrange = $this->getDateCreatedRangeCrit($this->params->search->search);
             $searchCrit = $this->getSearchCrit($this->params->search->search);
-            $statutvideo = $this->getStatutVideoCrit($this->params->search->search);
+            //$statutvideo = $this->getStatutVideoCrit($this->params->search->search);
             //dd($searchCrit, $this->params->search->search);
             if ($searchCrit) {
                 $query
@@ -34,10 +34,6 @@ class ParticipantSearch extends Search
                 $dt_fin = Carbon::createFromFormat('Y-m-d', $datecreatedrange[1])->addDay()->format('Y-m-d');
                 $query
                     ->whereBetween('created_at', [$dt_deb,$dt_fin]);
-            }
-            if ($statutvideo) {
-                $query
-                    ->where('statut_video_id', $statutvideo);
             }
         }
 
