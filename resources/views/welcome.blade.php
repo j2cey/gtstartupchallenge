@@ -92,7 +92,7 @@
                     <h6>Règlement</h6>
                     <p class="text fs-14 text-info">Cliquer ci-dessous pour consulter le ...
                         <br>
-                        <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/Reglement_Startup_Challenge_MoovAfrica_GT_VF_20210304_1.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
+                        <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/Reglement_Startup_Challenge_MoovAfrica_GT_VF_20210312_1.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
                     </p>
                     <p>
                         <a class="btn btn-xs btn-round w-200 btn-warning mr-16" href="#" data-scrollto="section-formulaire">Inscrivez-vous</a>
