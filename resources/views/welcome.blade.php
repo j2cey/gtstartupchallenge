@@ -110,7 +110,7 @@
                         <small class="text text-success">Etape 1:</small>
                         <span class="fs-14">Au plus 30 startups à fort potentiel répondant aux critères d'éligibilité seront présélectionnées sur la base du formulaire de candidature. Des informations complémentaires et/ou entretiens peuvent être demandés lors de la phase d’évaluation des candidatures.</span>
                         <br>
-                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période: du 08/03/21 au 31/03/21</small>
+                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période du 08/03/21 au 30/04/21</small>
                         <br>
                         <small class="text text-success">Etape 2:</small>
                         <span class="fs-14">
@@ -118,7 +118,7 @@
                             <br>
                             Les 10 startups sélectionnées seront accompagnées par Moov Africa Gabon Télécom à travers plusieurs actions et formations dans différents domaines ( plus de détail dans le règlement intérieur )
                         </span>
-                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période: du 01/04/21 au 31/05/21</small>
+                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période du 01/05/21 au 31/06/21</small>
                         <br>
                         <small class="text text-success">Etape Grande Finale:</small>
                         <span class="fs-14">
