@@ -118,7 +118,7 @@
                             <br>
                             Les 10 startups sélectionnées seront accompagnées par Moov Africa Gabon Télécom à travers plusieurs actions et formations dans différents domaines ( plus de détail dans le règlement intérieur )
                         </span>
-                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période du 01/05/21 au 31/06/21</small>
+                        <small class="fw-600 fs-14 text-danger"> <i class="fa fa-caret-right"></i> Période du 01/05/21 au 30/06/21</small>
                         <br>
                         <small class="text text-success">Etape Grande Finale:</small>
                         <span class="fs-14">
