@@ -50,6 +50,7 @@ class Participant extends BaseModel implements Auditable
             'email' => ['email','required'],
             'phone' => ['required'],
             'reglementvalide' => ['required'],
+            'complementinfos' => ['max:255'],
         ];
     }
     public static function createRules() {
@@ -88,6 +89,8 @@ class Participant extends BaseModel implements Auditable
             'fichier_dossier_candidature.mimes' => 'Le fichier dossier de candidature doit etre au format PDF,jpeg,png,bmp,gif ou svg',
 
             'reglementvalide.required' => 'Vous devez aprrouver le règlement !',
+
+            'complementinfos.max' => 'Le complément d information ne peut pas excéder 255 caractères !',
         ];
     }
 
