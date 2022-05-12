@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <header class="header header-inverse h-fullscreen pb-80" style="background-image: url({{ asset('assets/img/Moov_Africa_Start_UP_Web_1542_759px_20210324_1.jpg') }});" data-overlay="4">
+    <header class="header header-inverse h-fullscreen pb-80" style="background-image: url({{ asset('assets/img/Moov_Africa_START_UP_2022_1542x759.jpg') }});" data-overlay="4">
 
         <div class="container text-center">
 
@@ -61,11 +61,12 @@
                     <p class="feature-icon text-info"><i class="icon-scope"></i></p>
                     <h6>Principe</h6>
                     <ul class="list-unstyled fs-14">
-                        Moov Africa – Gabon télécom organise un challenge pour célébrer les meilleures startups dans le digital au Gabon. Le challenge se déroule sur trois phases :
+                        Moov Africa – Gabon télécom organise un challenge pour célébrer les meilleures startups dans le digital au Gabon. Le challenge se déroule sur quatre phases :
                         <ul class="contacts-list-status fs-14">
                             <li>Appel à candidature : 30 startups sont présélectionnées pour la suite de la compétition.</li>
                             <li>Phase dite d’accompagnement, pendant laquelle un panel de 10 startup sont sélectionnées pour un accompagnement approfondi.</li>
-                            <li>Une grande finale, pendant laquelle 3 startups sont choisies par un jury qualifié à l’issue de présentations directes.</li>
+                            <li>Une grande finale nationale, pendant laquelle 3 startups sont choisies par un jury qualifié à l’issue de présentations directes.</li>
+                            <li>Une grande finale Groupe.</li>
                         </ul>
                     </ul>
                 </div>
@@ -82,7 +83,6 @@
                             <li>Agri-Tech : solutions digitales pour l’agriculture</li>
                             <li>Fin-Tech : solutions digitales pour le paiement mobile</li>
                             <li>Smart city : Solutions pour les villes intelligentes</li>
-                            <li>Transport : Solution digitale pour transport</li>
                         </ul>
                     </ul>
                 </div>
@@ -92,7 +92,7 @@
                     <h6>Règlement</h6>
                     <p class="text fs-14 text-info">Cliquer ci-dessous pour consulter le ...
                         <br>
-                        <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/Reglement_Startup_Challenge_MoovAfrica_GT_VF_20210324_1.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
+                        <a class="fw-600 fs-18 text-danger" href="{{ asset('uploads/pdf/REGLEMENT_START_UP_CHALLENGE_2EME_EDITION__Valide.pdf') }}">... Règlement du Concours <i class="fa fa-chevron-right fs-9 pl-8"></i></a>
                     </p>
                     <p>
                         <a class="btn btn-xs btn-round w-200 btn-warning mr-16" href="#" data-scrollto="section-formulaire">Inscrivez-vous</a>

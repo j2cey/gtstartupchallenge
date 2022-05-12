@@ -23,6 +23,7 @@ Route::get('/', function () {
 
 Route::resource('settings','SettingController');
 Route::resource('participants','ParticipantController');
+Route::resource('participantmembers','ParticipantMemberController');
 
 Auth::routes();
 

@@ -94,7 +94,20 @@ class ParticipantController extends Controller
             'nomgroupe' => $formInput['nomgroupe'],
             'email' => $formInput['email'],
             'phone' => $formInput['phone'],
-            'complementinfos' => $formInput['complementinfos'],
+            //'complementinfos' => $formInput['complementinfos'],
+
+            'project_name' => $formInput['project_name'],
+            'project_problem' => $formInput['project_problem'],
+            'project_problem_eval' => $formInput['project_problem_eval'],
+            'project_problem_current_solve' => $formInput['project_problem_current_solve'],
+            'project_problem_solution' => $formInput['project_problem_solution'],
+            'project_problem_solution_innovative' => $formInput['project_problem_solution_innovative'],
+            'project_problem_solution_link' => $formInput['project_problem_solution_link'],
+            'project_problem_solution_level' => $formInput['project_problem_solution_level'],
+            'project_payment' => $formInput['project_payment'],
+            'project_money_source' => $formInput['project_money_source'],
+            'project_cost' => $formInput['project_cost'],
+
             'reglementvalide' => $request->getCheckValue('reglementvalide'),
         ]);
 
@@ -109,6 +122,8 @@ class ParticipantController extends Controller
         //$new_participant->setVideoParameters($request, 'participants_fichiersvideos_dir', 'fichiervideo', 'fichiervideo_duree', 'fichiervideo_artwork');
 
         //session()->flash('msg_success', 'Inscription effectuéé avec succès.');
+
+        // 'project_team_value' => $formInput['project_team_value'],
         return $new_participant;
     }
 

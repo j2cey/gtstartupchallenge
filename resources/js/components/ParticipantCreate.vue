@@ -52,8 +52,86 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea class="form-control" name="complementinfos" placeholder="Complément information" rows="3" v-model="participantForm.complementinfos"></textarea>
-                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('complementinfos')" v-text="participantForm.errors.get('complementinfos')"></small></p>
+                    <label class="custom-control custom-checkbox">Prière de répondre aux Questionaire ci-dessous:</label>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Quel est le nom de votre  projet</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_name" placeholder="" v-model="participantForm.project_name">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_name')" v-text="participantForm.errors.get('project_name')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Quel est le problème que vous souhaitez resoudre?</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_problem" placeholder="" v-model="participantForm.project_problem">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_problem')" v-text="participantForm.errors.get('project_problem')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Avez-vous des chiffres ou tout autre document permettant d'évaluer la réalité du problème</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_problem_eval" placeholder="" v-model="participantForm.project_problem_eval">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_problem_eval')" v-text="participantForm.errors.get('project_problem_eval')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Comment le problème est-il résolu actuellement?</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_problem_current_solve" placeholder="" v-model="participantForm.project_problem_current_solve">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_problem_current_solve')" v-text="participantForm.errors.get('project_problem_current_solve')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Quelle est la solution que vous proposez? (description du projet)</small></label>
+                    <textarea class="form-control form-control-sm" type="text" name="project_problem_solution" placeholder="" rows="3" v-model="participantForm.project_problem_solution"></textarea>
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_problem_solution')" v-text="participantForm.errors.get('project_problem_solution')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">En quoi est-elle innovante?</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_problem_solution_innovative" placeholder="" v-model="participantForm.project_problem_solution_innovative">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_problem_solution_innovative')" v-text="participantForm.errors.get('project_problem_solution_innovative')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Avez-vous un lien pour tester votre solution? Ou une solution similaire?</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_problem_solution_link" placeholder="" v-model="participantForm.project_problem_solution_link">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_problem_solution_link')" v-text="participantForm.errors.get('project_problem_solution_link')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Quel est le niveau de développement de votre solution (estimez en %)</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_problem_solution_level" placeholder="" v-model="participantForm.project_problem_solution_level">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_problem_solution_level')" v-text="participantForm.errors.get('project_problem_solution_level')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Quel est votre cible? (qui payera pour votre solution)</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_payment" placeholder="" v-model="participantForm.project_payment">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_payment')" v-text="participantForm.errors.get('project_payment')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Comment gagnerez vous de l'argent (décrivez toutes les sources de revenus généré par votre projet)</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_money_source" placeholder="" v-model="participantForm.project_money_source">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_money_source')" v-text="participantForm.errors.get('project_money_source')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">A combien estimez-vous le coût de mise en oeuvre de votre projet?</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_cost" placeholder="" v-model="participantForm.project_cost">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_cost')" v-text="participantForm.errors.get('project_cost')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Pourquoi êtes-vous le mieux placer pour développer cette solution?</small></label>
+                    <input class="form-control form-control-sm" type="text" name="project_team_value" placeholder="" v-model="participantForm.project_team_value">
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_team_value')" v-text="participantForm.errors.get('project_team_value')"></small></p>
+                </div>
+
+                <div class="form-group">
+                    <label style="text-align:left; float:left;"><small class="text-sm text-info">Présentation des membres de l'équipe</small></label>
+                    <project-team :projectTeam_prop="[]"></project-team>
+                    <input class="form-control form-control-sm" type="hidden" name="project_team" placeholder="" v-model="participantForm.project_team" readonly>
+                    <p class="text-sm-left"><small class="text text-danger" role="alert" v-if="participantForm.errors.has('project_team')" v-text="participantForm.errors.get('project_team')"></small></p>
                 </div>
 
                 <div class="form-group">
@@ -86,20 +164,41 @@
             this.phone = participant.phone || ''
             this.fichier_administrative = participant.fichier_administrative || ''
             this.fichier_dossier_candidature = participant.fichier_dossier_candidature || ''
-            this.complementinfos = participant.complementinfos || ''
+
+            this.project_name = participant.project_name || ''
+            this.project_problem = participant.project_problem || ''
+            this.project_problem_eval = participant.project_problem_eval || ''
+            this.project_problem_current_solve = participant.project_problem_current_solve || ''
+            this.project_problem_solution = participant.project_problem_solution || ''
+            this.project_problem_solution_innovative = participant.project_problem_solution_innovative || ''
+            this.project_problem_solution_link = participant.project_problem_solution_link || ''
+            this.project_problem_solution_level = participant.project_problem_solution_level || ''
+            this.project_payment = participant.project_payment || ''
+            this.project_money_source = participant.project_money_source || ''
+            this.project_cost = participant.project_cost || ''
+            this.project_team_value = participant.project_team_value || ''
+            this.project_team = participant.project_team || ''
+
             this.reglementvalide = participant.reglementvalide || ''
         }
     }
-
+    import ProjectTeamBus from './projectTeamBus'
     export default {
         name: "ParticipantCreate",
         props: {
             getfileuploadmaxsize_prop: 0,
         },
+        components: {
+            projectTeam: () => import('./ProjectTeam')
+        },
         mounted() {
             this.editing = false
             this.participant = new Participant({})
             this.participantForm = new Form(this.participant)
+
+            ProjectTeamBus.$on('projectteam_edited', (projectteam_data) => {
+                this.participantForm.project_team = projectteam_data
+            })
         },
         data() {
             return {
@@ -150,14 +249,6 @@
                 });
             },
             resetForm() {
-                //this.participantForm.nom = ''
-                //this.participantForm.nomgroupe = ''
-                //this.participantForm.email = ''
-                //this.participantForm.phone = ''
-                //this.participantForm.fichier_administrative = ''
-                //this.participantForm.fichiervideo = ''
-                //this.participantForm.complementinfos = ''
-                //this.participantForm.reglementvalide = ''
                 this.participantForm.reset();
                 this.$refs.fichier_administrative.value = '';
                 this.$refs.fichiervideo.value = '';

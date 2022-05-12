@@ -32,6 +32,20 @@ use OwenIt\Auditing\Contracts\Auditable;
  * @property string $fichier_dossier_candidature_type
  *
  * @property string $complementinfos
+ *
+ * @property string $project_name
+ * @property string $project_problem
+ * @property string $project_problem_eval
+ * @property string $project_problem_current_solve
+ * @property string $project_problem_solution
+ * @property string $project_problem_solution_innovative
+ * @property string $project_problem_solution_link
+ * @property string $project_problem_solution_level
+ * @property string $project_payment
+ * @property string $project_money_source
+ * @property string $project_cost
+ * @property string $project_team_value
+ *
  * @property boolean $reglementvalide
  *
  * @property Carbon $created_at
@@ -51,6 +65,19 @@ class Participant extends BaseModel implements Auditable
             'phone' => ['required'],
             'reglementvalide' => ['required'],
             'complementinfos' => ['max:255'],
+            'project_name' => ['required'],
+            'project_problem' => ['required'],
+            'project_problem_eval' => ['required'],
+            'project_problem_current_solve' => ['required'],
+            'project_problem_solution' => ['required'],
+            'project_problem_solution_innovative' => ['required'],
+            'project_problem_solution_link' => ['required'],
+            'project_problem_solution_level' => ['required'],
+            'project_payment' => ['required'],
+            'project_money_source' => ['required'],
+            'project_cost' => ['required'],
+            'project_team_value' => ['required'],
+            'project_team' => ['required'],
         ];
     }
     public static function createRules() {
@@ -91,6 +118,20 @@ class Participant extends BaseModel implements Auditable
             'reglementvalide.required' => 'Vous devez aprrouver le règlement !',
 
             'complementinfos.max' => 'Le complément d information ne peut pas excéder 255 caractères !',
+
+            'project_name.required' => 'Prière de répondre à cette question',
+            'project_problem.required' => 'Prière de répondre à cette question',
+            'project_problem_eval.required' => 'Prière de répondre à cette question',
+            'project_problem_current_solve.required' => 'Prière de répondre à cette question',
+            'project_problem_solution.required' => 'Prière de répondre à cette question',
+            'project_problem_solution_innovative.required' => 'Prière de répondre à cette question',
+            'project_problem_solution_link.required' => 'Prière de répondre à cette question',
+            'project_problem_solution_level.required' => 'Prière de répondre à cette question',
+            'project_payment.required' => 'Prière de répondre à cette question',
+            'project_money_source.required' => 'Prière de répondre à cette question',
+            'project_cost.required' => 'Prière de répondre à cette question',
+            'project_team_value.required' => 'Prière de répondre à cette question',
+            'project_team.required' => 'Prière renseigner au moins un membre',
         ];
     }
 

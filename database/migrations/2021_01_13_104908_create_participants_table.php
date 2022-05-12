@@ -38,6 +38,18 @@ class CreateParticipantsTable extends Migration
 
             $table->string('complementinfos')->nullable()->comment('complement infos du participant');
             $table->boolean('reglementvalide')->default(false)->comment('complement infos du participant');
+
+            $table->string('project_name')->nullable()->comment('nom du projet');
+            $table->string('project_problem')->nullable()->comment('project_problem');
+            $table->string('project_problem_eval')->nullable()->comment('project_problem_eval');
+            $table->string('project_problem_current_solve')->nullable()->comment('project_problem_current_solve');
+            $table->string('project_problem_solution')->nullable()->comment('project_problem_solution');
+            $table->string('project_problem_solution_innovative')->nullable()->comment('project_problem_solution_innovative');
+            $table->string('project_problem_solution_link')->nullable()->comment('project_problem_solution_link');
+            $table->string('project_problem_solution_level')->nullable()->comment('project_problem_solution_level');
+            $table->string('project_payment')->nullable()->comment('project_payment');
+            $table->string('project_money_source')->nullable()->comment('project_money_source');
+            $table->string('project_cost')->nullable()->comment('project_cost');
         });
         $this->setTableComment($this->table_name,$this->table_comment);
     }
