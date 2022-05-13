@@ -3,12 +3,10 @@
 namespace App\Http\Requests\ParticipantMember;
 
 use App\Models\ParticipantMember;
-use App\Traits\Request\RequestTraits;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateParticipantMemberRequest extends FormRequest
+class CreateParticipantMemberRequest extends ParticipantMemberRequest
 {
-    use RequestTraits;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -28,15 +26,5 @@ class CreateParticipantMemberRequest extends FormRequest
     public function rules()
     {
         return ParticipantMember::createRules();
-    }
-
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return ParticipantMember::messagesRules();
     }
 }

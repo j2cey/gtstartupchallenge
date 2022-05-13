@@ -44,6 +44,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProjectTeam",
@@ -65,11 +69,11 @@ __webpack_require__.r(__webpack_exports__);
     _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('projectteammember_created', function (add_data) {
       _this.addProjectTeamMember(add_data.projectteammember);
     });
-    this.$on('projectteammember_deleted', function (projectteammember) {
+    _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('projectteammember_deleted', function (projectteammember) {
       _this.deleteProjectTeamMember(projectteammember);
     });
-    this.$on('projectteammember_updated', function (projectteammember) {
-      _this.updateProjectTeamMember(projectteammember);
+    _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('projectteammember_updated', function (upd_data) {
+      _this.updateProjectTeamMember(upd_data.projectteammember);
     });
   },
   data: function data() {
@@ -89,22 +93,24 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       // we get the index of the modified task
-      var teamMemberIndex = this.projectTeam.findIndex(function (t) {
-        return projectteammember.id === t.id;
-      });
-      this.projectTeam.splice(teamMemberIndex, 1, projectteammember);
-      this.$swal({
-        html: '<small>Membre modifié avec succès !</small>',
-        icon: 'success',
-        timer: 3000
-      }).then(function () {
-        _this2.sendProjectTeam();
-      });
+      var memberIndex = this.projectTeam.findIndex(function (t) {
+        return projectteammember.uuid === t.uuid;
+      }); // if this memeber exists, it is removed from list
+
+      if (memberIndex !== -1) {
+        this.projectTeam.splice(memberIndex, 1, projectteammember);
+        this.$swal({
+          html: '<small>Membre modifié avec succès !</small>',
+          icon: 'success',
+          timer: 3000
+        }).then(function () {
+          _this2.sendProjectTeam();
+        });
+      }
     },
     addProjectTeamMember: function addProjectTeamMember(projectteammember) {
       var _this3 = this;
 
-      console.log("addProjectTeamMember: ", projectteammember, this.projectTeam);
       this.projectTeam.push(projectteammember);
       this.$swal({
         html: '<small>Membre ajouté avec succès !</small>',
@@ -117,20 +123,33 @@ __webpack_require__.r(__webpack_exports__);
     deleteProjectTeamMember: function deleteProjectTeamMember(projectteammember) {
       var _this4 = this;
 
-      var teamMemberIndex = this.projectTeam.findIndex(function (t) {
-        return projectteammember.id === t.id;
-      }); // if this task exists, it is removed from list
+      this.$swal({
+        html: '<small>Voulez-vous vraiment supprimer ce Membre ?</small>',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui',
+        cancelButtonText: 'Non'
+      }).then(function (result) {
+        if (result.value) {
+          var memberIndex = _this4.projectTeam.findIndex(function (t) {
+            return projectteammember.uuid === t.uuid;
+          }); // if this memeber exists, it is removed from list
 
-      if (teamMemberIndex !== -1) {
-        this.projectTeam.splice(teamMemberIndex, 1);
-        this.$swal({
-          html: '<small>Membre supprimé avec succès !</small>',
-          icon: 'success',
-          timer: 3000
-        }).then(function () {
-          _this4.sendProjectTeam();
-        });
-      }
+
+          if (memberIndex !== -1) {
+            _this4.projectTeam.splice(memberIndex, 1);
+
+            _this4.$swal({
+              html: '<small>Membre supprimé avec succès !</small>',
+              icon: 'success',
+              timer: 3000
+            }).then(function () {
+              _this4.sendProjectTeam();
+            });
+          }
+        } else {// stay here
+        }
+      });
     },
     sendProjectTeam: function sendProjectTeam() {
       var projectteam = this.projectTeam;
@@ -234,9 +253,35 @@ var render = function () {
           _c(
             "tbody",
             _vm._l(_vm.projectTeam, function (member, idx) {
-              return _c("tr", { key: member.id }, [
+              return _c("tr", { key: member.uuid }, [
                 _c("th", { attrs: { scope: "row" } }, [
-                  _vm._v(_vm._s(member.id)),
+                  _c(
+                    "a",
+                    {
+                      attrs: { type: "button" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.deleteProjectTeamMember(member)
+                        },
+                      },
+                    },
+                    [_c("i", { staticClass: "ti ti-trash text-danger" })]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "row" } }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: { type: "button" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.editProjectTeamMember(member)
+                        },
+                      },
+                    },
+                    [_c("i", { staticClass: "ti ti-pencil-alt text-success" })]
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(member.nom))]),
@@ -271,7 +316,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("#")]),
+        _c("th"),
+        _vm._v(" "),
+        _c("th"),
         _vm._v(" "),
         _c("th", [_vm._v("Noms")]),
         _vm._v(" "),

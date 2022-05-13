@@ -198,7 +198,6 @@
 
             ProjectTeamBus.$on('projectteam_edited', (projectteam_data) => {
                 this.participantForm.project_team = JSON.stringify(projectteam_data)
-                console.log("projectteam_edited: ", projectteam_data)
             })
         },
         data() {
@@ -239,11 +238,13 @@
                     .post('/participants', fd)
                     .then(newparticipant => {
                         this.loading = false
-                        window.noty({
-                            message: 'Votre inscription a été enregistrée, merci pour votre participation !',
-                            type: 'success'
+                        this.$swal({
+                            html: '<small>Votre inscription a été enregistrée, merci pour votre participation !</small>',
+                            icon: 'success',
+                            timer: 5000
+                        }).then(() => {
+                            this.resetForm();
                         })
-                        this.resetForm();
 
                     }).catch(error => {
                     this.loading = false

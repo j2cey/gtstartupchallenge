@@ -89,12 +89,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
+//
 
 
 var ProjectTeamMember = /*#__PURE__*/_createClass(function ProjectTeamMember(projectTeamMember) {
   _classCallCheck(this, ProjectTeamMember);
 
   this.id = projectTeamMember.id || 0;
+  this.uuid = projectTeamMember.uuid || '0';
   this.nom = projectTeamMember.nom || '';
   this.prenom = projectTeamMember.prenom || '';
   this.age = projectTeamMember.age || '';
@@ -143,9 +145,9 @@ var ProjectTeamMember = /*#__PURE__*/_createClass(function ProjectTeamMember(pro
       var _this2 = this;
 
       this.loading = true;
+      this.projectTeamMemberForm.participant_id = this.participantId;
       this.projectTeamMemberForm.post('/participantmembers').then(function (projectteammember) {
         _this2.loading = false;
-        console.log("createProjectTeamMember: ", projectteammember);
         _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('projectteammember_created', {
           projectteammember: projectteammember,
           participantId: participantId
@@ -153,6 +155,22 @@ var ProjectTeamMember = /*#__PURE__*/_createClass(function ProjectTeamMember(pro
         $('#projectteamformModal').modal('hide');
       })["catch"](function (error) {
         _this2.loading = false;
+      });
+    },
+    updateProjectTeamMember: function updateProjectTeamMember(participantId) {
+      var _this3 = this;
+
+      this.loading = true;
+      var fd = undefined;
+      this.projectTeamMemberForm.put("/participantmembers/".concat(this.projectTeamMemberId), fd).then(function (projectteammember) {
+        _this3.loading = false;
+        _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('projectteammember_updated', {
+          projectteammember: projectteammember,
+          participantId: participantId
+        });
+        $('#projectteamformModal').modal('hide');
+      })["catch"](function (error) {
+        _this3.loading = false;
       });
     }
   },
@@ -566,19 +584,33 @@ var render = function () {
               [_vm._v("Fermer")]
             ),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-xs btn-primary",
-                attrs: { type: "button", disabled: !_vm.isValidForm },
-                on: {
-                  click: function ($event) {
-                    return _vm.createProjectTeamMember(_vm.participantId)
+            _vm.editing
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-xs btn-primary",
+                    attrs: { type: "button", disabled: !_vm.isValidForm },
+                    on: {
+                      click: function ($event) {
+                        return _vm.updateProjectTeamMember(_vm.participantId)
+                      },
+                    },
                   },
-                },
-              },
-              [_vm._v("Valider")]
-            ),
+                  [_vm._v("Valider")]
+                )
+              : _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-xs btn-primary",
+                    attrs: { type: "button", disabled: !_vm.isValidForm },
+                    on: {
+                      click: function ($event) {
+                        return _vm.createProjectTeamMember(_vm.participantId)
+                      },
+                    },
+                  },
+                  [_vm._v("Valider")]
+                ),
           ]),
         ]),
       ]),

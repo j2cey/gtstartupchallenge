@@ -40,10 +40,10 @@ class ParticipantMember extends BaseModel implements Auditable
         return [
             'nom' => ['required'],
             'email' => ['email','required'],
-            'phone' => ['required'],
-            'age' => ['required'],
+            'phone' => ['required','min:8'],
+            'age' => ['required','numeric'],
             'profil' => ['required'],
-            'experience' => ['required'],
+            'experience' => ['required','numeric'],
         ];
     }
     public static function createRules() {
@@ -63,9 +63,12 @@ class ParticipantMember extends BaseModel implements Auditable
             'email.required' => 'Prière de Renseigner une adresse e-mail',
             'email.email' => 'Prière de Renseigner une adresse e-mail valide',
             'phone.required' => 'Prière de Renseigner le Numéro de Phone',
+            'phone.min' => 'Le Numéro de Phone doit avoir 8 digits minimum',
             'age.required' => 'Prière de Renseigner l age du membre',
+            'age.numeric' => 'L age doit etre un nombre',
             'profil.required' => 'Prière de Renseigner le Profile du membre',
             'experience.required' => 'Prière de Renseigner le nombre d années d expérience du membre',
+            'experience.numeric' => 'L expérience doit etre un nombre d années',
         ];
     }
 
@@ -108,6 +111,25 @@ class ParticipantMember extends BaseModel implements Auditable
         if( ! is_null($participant) ) $member->participant_id = $participant->id;
 
         $member->save();
+
+        return $member;
+    }
+
+    public static function createSimple($nom, $prenom, $age, $email, $phone, $profil, $experience, $uuid = null, $participant = null) {
+
+        $member = new ParticipantMember([
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'age' => $age,
+            'email' => $email,
+            'phone' => $phone,
+            'profil' => $profil,
+            'experience' => $experience,
+        ]);
+
+        if( ! is_null($participant) ) $member->participant_id = $participant->id;
+
+        is_null($uuid) ? $member->setGeneratedUuid() : $member->uuid = $uuid;
 
         return $member;
     }

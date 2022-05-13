@@ -4,7 +4,8 @@
         <table class="table table-sm table-hover table-borderless">
             <thead>
             <tr>
-                <th>#</th>
+                <th></th>
+                <th></th>
                 <th>Noms</th>
                 <th>Prénoms</th>
                 <th>Age</th>
@@ -15,8 +16,11 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(member, idx) in projectTeam" :key="member.id">
-                <th scope="row">{{ member.id }}</th>
+            <tr v-for="(member, idx) in projectTeam" :key="member.uuid">
+                <th scope="row"><a type="button" @click="deleteProjectTeamMember(member)"> <i class="ti ti-trash text-danger"></i>
+                </a></th>
+                <th scope="row"><a type="button" @click="editProjectTeamMember(member)"> <i class="ti ti-pencil-alt text-success"></i>
+                </a></th>
                 <td>{{ member.nom }}</td>
                 <td>{{ member.prenom }}</td>
                 <td>{{ member.age }}</td>
@@ -52,12 +56,12 @@
                 this.addProjectTeamMember(add_data.projectteammember)
             })
 
-            this.$on('projectteammember_deleted', (projectteammember) => {
+            ProjectTeamBus.$on('projectteammember_deleted', (projectteammember) => {
                 this.deleteProjectTeamMember(projectteammember);
             })
 
-            this.$on('projectteammember_updated', (projectteammember) => {
-                this.updateProjectTeamMember(projectteammember);
+            ProjectTeamBus.$on('projectteammember_updated', (upd_data) => {
+                this.updateProjectTeamMember(upd_data.projectteammember);
             })
         },
         data() {
@@ -75,22 +79,24 @@
             },
             updateProjectTeamMember(projectteammember) {
                 // we get the index of the modified task
-                let teamMemberIndex = this.projectTeam.findIndex(t => {
-                    return projectteammember.id === t.id
+                let memberIndex = this.projectTeam.findIndex(t => {
+                    return projectteammember.uuid === t.uuid
                 })
-                this.projectTeam.splice(teamMemberIndex, 1, projectteammember)
 
-                this.$swal({
-                    html: '<small>Membre modifié avec succès !</small>',
-                    icon: 'success',
-                    timer: 3000
-                }).then(() => {
-                    this.sendProjectTeam()
-                })
+                // if this memeber exists, it is removed from list
+                if (memberIndex !== -1) {
+                    this.projectTeam.splice(memberIndex, 1, projectteammember)
+
+                    this.$swal({
+                        html: '<small>Membre modifié avec succès !</small>',
+                        icon: 'success',
+                        timer: 3000
+                    }).then(() => {
+                        this.sendProjectTeam()
+                    })
+                }
             },
             addProjectTeamMember(projectteammember) {
-                console.log("addProjectTeamMember: ", projectteammember, this.projectTeam)
-
                 this.projectTeam.push(projectteammember)
                 this.$swal({
                     html: '<small>Membre ajouté avec succès !</small>',
@@ -101,22 +107,37 @@
                 })
             },
             deleteProjectTeamMember(projectteammember) {
-                let teamMemberIndex = this.projectTeam.findIndex(t => {
-                    return projectteammember.id === t.id
+
+                this.$swal({
+                    html: '<small>Voulez-vous vraiment supprimer ce Membre ?</small>',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Oui',
+                    cancelButtonText: 'Non'
+                }).then((result) => {
+                    if(result.value) {
+
+                        let memberIndex = this.projectTeam.findIndex(t => {
+                            return projectteammember.uuid === t.uuid
+                        })
+                        // if this memeber exists, it is removed from list
+                        if (memberIndex !== -1) {
+
+                            this.projectTeam.splice(memberIndex, 1)
+
+                            this.$swal({
+                                html: '<small>Membre supprimé avec succès !</small>',
+                                icon: 'success',
+                                timer: 3000
+                            }).then(() => {
+                                this.sendProjectTeam()
+                            })
+                        }
+
+                    } else {
+                        // stay here
+                    }
                 })
-                // if this task exists, it is removed from list
-                if (teamMemberIndex !== -1) {
-
-                    this.projectTeam.splice(teamMemberIndex, 1)
-
-                    this.$swal({
-                        html: '<small>Membre supprimé avec succès !</small>',
-                        icon: 'success',
-                        timer: 3000
-                    }).then(() => {
-                        this.sendProjectTeam()
-                    })
-                }
             },
             sendProjectTeam() {
                 let projectteam = this.projectTeam

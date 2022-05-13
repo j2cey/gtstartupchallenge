@@ -64,7 +64,8 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-xs btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-xs btn-primary" @click="createProjectTeamMember(participantId)" :disabled="!isValidForm">Valider</button>
+                    <button type="button" class="btn btn-xs btn-primary" @click="updateProjectTeamMember(participantId)" :disabled="!isValidForm" v-if="editing">Valider</button>
+                    <button type="button" class="btn btn-xs btn-primary" @click="createProjectTeamMember(participantId)" :disabled="!isValidForm" v-else>Valider</button>
                 </div>
             </div>
         </div>
@@ -76,6 +77,7 @@
     class ProjectTeamMember {
         constructor(projectTeamMember) {
             this.id = projectTeamMember.id || 0
+            this.uuid = projectTeamMember.uuid || '0'
             this.nom = projectTeamMember.nom || ''
             this.prenom = projectTeamMember.prenom || ''
             this.age = projectTeamMember.age || ''
@@ -122,17 +124,31 @@
         methods: {
             createProjectTeamMember(participantId) {
                 this.loading = true
+                this.projectTeamMemberForm.participant_id = this.participantId
                 this.projectTeamMemberForm
                     .post('/participantmembers')
                     .then(projectteammember => {
                         this.loading = false
-                        console.log("createProjectTeamMember: ", projectteammember)
                         ProjectTeamBus.$emit('projectteammember_created', {projectteammember, participantId})
                         $('#projectteamformModal').modal('hide')
                     }).catch(error => {
                     this.loading = false
                 });
             },
+            updateProjectTeamMember(participantId) {
+                this.loading = true
+                const fd = undefined;
+
+                this.projectTeamMemberForm
+                    .put(`/participantmembers/${this.projectTeamMemberId}`, fd)
+                    .then(projectteammember => {
+                        this.loading = false
+                        ProjectTeamBus.$emit('projectteammember_updated', {projectteammember, participantId})
+                        $('#projectteamformModal').modal('hide')
+                    }).catch(error => {
+                    this.loading = false
+                });
+            }
         },
         computed: {
             isValidForm() {

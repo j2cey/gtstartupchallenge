@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ParticipantMember\CreateParticipantMemberRequest;
+use App\Http\Requests\ParticipantMember\UpdateParticipantMemberRequest;
 use App\Models\ParticipantMember;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -39,17 +40,10 @@ class ParticipantMemberController extends Controller
     {
         $formInput = $request->all();
 
-        $new_memember = new ParticipantMember();
-
-        $new_memember->nom = $formInput['nom'];
-        $new_memember->prenom = $formInput['prenom'];
-        $new_memember->age = $formInput['age'];
-        $new_memember->email = $formInput['email'];
-        $new_memember->phone = $formInput['phone'];
-        $new_memember->profil = $formInput['profil'];
-        $new_memember->experience = $formInput['experience'];
-
-        $new_memember->setGeneratedUuid();
+        $new_memember = ParticipantMember::createSimple(
+            $formInput['nom'],$formInput['prenom'],$formInput['age'],$formInput['email'],$formInput['phone'],
+            $formInput['profil'],$formInput['experience']
+        );
 
         return $new_memember;
     }
@@ -71,7 +65,7 @@ class ParticipantMemberController extends Controller
      * @param  \App\ParticipantMember  $participantMember
      * @return Response
      */
-    public function edit(ParticipantMember $participantMember)
+    public function edit(ParticipantMember $participantmember)
     {
         //
     }
@@ -79,13 +73,24 @@ class ParticipantMemberController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  \App\ParticipantMember  $participantMember
-     * @return Response
+     * @param UpdateParticipantMemberRequest $request
+     * @param ParticipantMember $participantmember
+     * @return ParticipantMember|void
      */
-    public function update(Request $request, ParticipantMember $participantMember)
+    public function update(Request $request, $participantmember)
     {
-        //
+        $formInput = $request->all();
+
+        $request ->validate(ParticipantMember::updateRules($participantmember),ParticipantMember::messagesRules());
+
+        //dd($formInput, $participantmember);
+
+        $memember = ParticipantMember::createSimple(
+            $formInput['nom'],$formInput['prenom'],$formInput['age'],$formInput['email'],$formInput['phone'],
+            $formInput['profil'],$formInput['experience'],$participantmember
+        );
+
+        return $memember;
     }
 
     /**
