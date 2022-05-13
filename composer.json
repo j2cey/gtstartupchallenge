@@ -20,7 +20,8 @@
         "owen-it/laravel-auditing": "^12.0",
         "owen-oj/laravel-getid3": "^1.1",
         "pbmedia/laravel-ffmpeg": "^7.5",
-        "php-ffmpeg/php-ffmpeg": "^0.17.0"
+        "php-ffmpeg/php-ffmpeg": "^0.17.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

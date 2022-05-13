@@ -39,4 +39,16 @@ class CreateParticipantRequest extends FormRequest
     {
         return Participant::messagesRules();
     }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'project_team' => $this->decodeJsonField($this->input('project_team')),
+        ]);
+    }
 }

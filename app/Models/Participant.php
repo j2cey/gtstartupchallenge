@@ -137,6 +137,40 @@ class Participant extends BaseModel implements Auditable
 
     #endregion
 
+    #region Eloquent Relationships
+
+    public function members() {
+        return $this->hasMany(ParticipantMember::class, 'participant_id');
+    }
+
+    #endregion
+
+    #region Custom Functions CRUD
+
+    public function addMember($nom, $prenom, $age, $email, $phone, $profil, $experience) {
+        return ParticipantMember::createNew($nom, $prenom, $age, $email, $phone, $profil, $experience,$this);
+    }
+
+    public function addMembersMulti($members) {
+        foreach ($members as $member) {
+            $nom = $member['nom'];
+            $prenom = $member['prenom'];
+            $age = $member['age'];
+            $email = $member['email'];
+            $phone = $member['phone'];
+            $profil = $member['profil'];
+            $experience = $member['experience'];
+            $this->addMember($nom, $prenom, $age, $email, $phone, $profil, $experience);
+        }
+    }
+
+    public function addMembersMultiFromJson($members_json) {
+        $members_arr = json_decode($members_json, true);
+        $this->addMembersMulti($members_arr);
+    }
+
+    #endregion
+
     public static function getFileUploadMaxSize($type_wanted) {
         $val_mo = config('Settings.files.uploads.max_size.any');
         return (new Participant())->convert_bytes($val_mo, "Mo", $type_wanted);

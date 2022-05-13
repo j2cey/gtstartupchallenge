@@ -197,7 +197,8 @@
             this.participantForm = new Form(this.participant)
 
             ProjectTeamBus.$on('projectteam_edited', (projectteam_data) => {
-                this.participantForm.project_team = projectteam_data
+                this.participantForm.project_team = JSON.stringify(projectteam_data)
+                console.log("projectteam_edited: ", projectteam_data)
             })
         },
         data() {

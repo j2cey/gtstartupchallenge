@@ -18,4 +18,12 @@ trait RequestTraits
             return 0;
         }
     }
+
+    /**
+     * @param $value
+     * @return mixed
+     */
+    public function decodeJsonField($value) {
+        return json_decode($value, true);
+    }
 }

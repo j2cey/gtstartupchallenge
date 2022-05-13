@@ -86,40 +86,57 @@ __webpack_require__.r(__webpack_exports__);
       _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('projectteammember_edit', projectteammember, projectteammember.participantId);
     },
     updateProjectTeamMember: function updateProjectTeamMember(projectteammember) {
+      var _this2 = this;
+
       // we get the index of the modified task
       var teamMemberIndex = this.projectTeam.findIndex(function (t) {
         return projectteammember.id === t.id;
       });
       this.projectTeam.splice(teamMemberIndex, 1, projectteammember);
-      window.noty({
-        message: 'Membre modifié avec succès',
-        type: 'success'
+      this.$swal({
+        html: '<small>Membre modifié avec succès !</small>',
+        icon: 'success',
+        timer: 3000
+      }).then(function () {
+        _this2.sendProjectTeam();
       });
-      _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('projectteam_edited', this.projectTeam);
     },
     addProjectTeamMember: function addProjectTeamMember(projectteammember) {
+      var _this3 = this;
+
       console.log("addProjectTeamMember: ", projectteammember, this.projectTeam);
-      window.noty({
-        message: 'Membre ajouté avec succès',
-        type: 'success'
-      });
       this.projectTeam.push(projectteammember);
-      _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('projectteam_edited', this.projectTeam);
+      this.$swal({
+        html: '<small>Membre ajouté avec succès !</small>',
+        icon: 'success',
+        timer: 3000
+      }).then(function () {
+        _this3.sendProjectTeam();
+      });
     },
     deleteProjectTeamMember: function deleteProjectTeamMember(projectteammember) {
+      var _this4 = this;
+
       var teamMemberIndex = this.projectTeam.findIndex(function (t) {
         return projectteammember.id === t.id;
       }); // if this task exists, it is removed from list
 
       if (teamMemberIndex !== -1) {
-        window.noty({
-          message: 'Membre supprimé avec succès',
-          type: 'success'
-        });
         this.projectTeam.splice(teamMemberIndex, 1);
+        this.$swal({
+          html: '<small>Membre supprimé avec succès !</small>',
+          icon: 'success',
+          timer: 3000
+        }).then(function () {
+          _this4.sendProjectTeam();
+        });
       }
-
-      _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('projectteam_edited', this.projectTeam);
+    },
+    sendProjectTeam: function sendProjectTeam() {
+      var projectteam = this.projectTeam;
+      _projectTeamBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('projectteam_edited', {
+        "list": projectteam
+      });
     }
   }
 });

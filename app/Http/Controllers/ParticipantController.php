@@ -87,7 +87,7 @@ class ParticipantController extends Controller
 
         $formInput = $request->all();
 
-        //dd($formInput, $request);
+        //dd($formInput);
 
         $new_participant = Participant::create([
             'nom' => $formInput['nom'],
@@ -124,6 +124,7 @@ class ParticipantController extends Controller
         //session()->flash('msg_success', 'Inscription effectuéé avec succès.');
 
         // 'project_team_value' => $formInput['project_team_value'],
+        $new_participant->addMembersMulti($formInput['project_team']["list"]);
         return $new_participant;
     }
 

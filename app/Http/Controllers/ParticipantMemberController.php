@@ -40,7 +40,7 @@ class ParticipantMemberController extends Controller
         $formInput = $request->all();
 
         $new_memember = new ParticipantMember();
-        
+
         $new_memember->nom = $formInput['nom'];
         $new_memember->prenom = $formInput['prenom'];
         $new_memember->age = $formInput['age'];
@@ -48,6 +48,8 @@ class ParticipantMemberController extends Controller
         $new_memember->phone = $formInput['phone'];
         $new_memember->profil = $formInput['profil'];
         $new_memember->experience = $formInput['experience'];
+
+        $new_memember->setGeneratedUuid();
 
         return $new_memember;
     }

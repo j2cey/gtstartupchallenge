@@ -79,20 +79,26 @@
                     return projectteammember.id === t.id
                 })
                 this.projectTeam.splice(teamMemberIndex, 1, projectteammember)
-                window.noty({
-                    message: 'Membre modifié avec succès',
-                    type: 'success'
+
+                this.$swal({
+                    html: '<small>Membre modifié avec succès !</small>',
+                    icon: 'success',
+                    timer: 3000
+                }).then(() => {
+                    this.sendProjectTeam()
                 })
-                ProjectTeamBus.$emit('projectteam_edited', this.projectTeam)
             },
             addProjectTeamMember(projectteammember) {
                 console.log("addProjectTeamMember: ", projectteammember, this.projectTeam)
-                window.noty({
-                    message: 'Membre ajouté avec succès',
-                    type: 'success'
-                })
+
                 this.projectTeam.push(projectteammember)
-                ProjectTeamBus.$emit('projectteam_edited', this.projectTeam)
+                this.$swal({
+                    html: '<small>Membre ajouté avec succès !</small>',
+                    icon: 'success',
+                    timer: 3000
+                }).then(() => {
+                    this.sendProjectTeam()
+                })
             },
             deleteProjectTeamMember(projectteammember) {
                 let teamMemberIndex = this.projectTeam.findIndex(t => {
@@ -100,13 +106,21 @@
                 })
                 // if this task exists, it is removed from list
                 if (teamMemberIndex !== -1) {
-                    window.noty({
-                        message: 'Membre supprimé avec succès',
-                        type: 'success'
-                    })
+
                     this.projectTeam.splice(teamMemberIndex, 1)
+
+                    this.$swal({
+                        html: '<small>Membre supprimé avec succès !</small>',
+                        icon: 'success',
+                        timer: 3000
+                    }).then(() => {
+                        this.sendProjectTeam()
+                    })
                 }
-                ProjectTeamBus.$emit('projectteam_edited', this.projectTeam)
+            },
+            sendProjectTeam() {
+                let projectteam = this.projectTeam
+                ProjectTeamBus.$emit('projectteam_edited', {"list":projectteam})
             }
         }
     }

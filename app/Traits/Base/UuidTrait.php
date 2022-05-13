@@ -10,4 +10,8 @@ trait UuidTrait
     {
         return Str::orderedUuid();
     }
+
+    public function setGeneratedUuid() {
+        $this->uuid = $this->generateUuid();
+    }
 }
