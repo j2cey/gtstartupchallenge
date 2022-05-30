@@ -60,7 +60,7 @@
                                     <span
                                         v-if="params.search"
                                         @click="clear({ search: '' })"
-                                        class="tw-absolute tw-top-0 tw-right-0 tw-mt-4 mr-4 tw-text-gray-500 tw-cursor-pointer"
+                                        class="tw-absolute tw-top-0 tw-right-0 tw-mt-4 tw-mr-4 tw-text-gray-500 tw-cursor-pointer"
                                     >
                                         <times-circle
                                             class="tw-fill-current tw-h-4 tw-pointer-events-none"
@@ -100,13 +100,13 @@
 
 
 
-                                <div class="tw-p-10 tw-grid tw-grid-cols-1 sm:tw-grid-cols-1 md:tw-grid-cols-3 lg:tw-grid-cols-3 xl:tw-grid-cols-3 tw-gap-5">
+                                <div class="tw-p-2 tw-grid tw-grid-cols-1 sm:tw-grid-cols-1 md:tw-grid-cols-3 lg:tw-grid-cols-3 xl:tw-grid-cols-3 tw-gap-5">
 
 
                                     <div v-for="record in records"
-                                         :key="record.id" class="tw-rounded tw-overflow-hidden tw-shadow-lg">
+                                         :key="record.id" class="tw-rounded tw-overflow-hidden tw-shadow-lg tw-w-90">
                                         <img class="tw-w-full" src="assets/img/thumbnail-default.jpg" alt="Mountain">
-                                        <div class="tw-px-6 tw-py-4">
+                                        <div class="tw-px-2 tw-py-4">
                                             <div class="tw-font-bold tw-text-xl tw-mb-2">@{{ record.nomgroupe }}</div>
                                             <div class="tw-font-bold tw-text-xs tw-mb-2"><i class="fa fa-user"></i>
                                                 @{{ record.nom }}
@@ -116,25 +116,82 @@
 
                                             <p class="tw-text-gray-700 tw-text-base">@{{ record.complementinfos }}</p>
                                         </div>
-                                        <div class="tw-px-6 tw-pt-4 tw-pb-2">
-                                            <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-thin tw-text-gray-700 tw-mr-2 tw-mb-2">
-                                                <a
-                                                    :href="record.fichieradministratifs_url"
-                                                    class="tw-inline-block tw-text-blue-500">
-                                                    <i class="fa fa-file-pdf-o"></i> Fichier Administratif
+                                        <div class="tw-px-2 tw-py-4">
+
+                                            <p>
+                                                <a class="btn btn-app btn-sm" data-toggle="collapse" :href="'#more-infos-1-' + record.id" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    <span class="badge bg-success">2</span>
+                                                    <i class="fas fa-paperclip"></i> Fichiers
                                                 </a>
-                                            </span>
-                                            <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-thin tw-text-gray-700 tw-mr-2 tw-mb-2">
-                                                <a
-                                                    :href="record.fichierdossierscandidature_url"
-                                                    class="tw-inline-block tw-text-red-500">
-                                                    <i class="fa fa-file-text-o"></i> Dossier Candidature
+                                                <a class="btn btn-app btn-sm" data-toggle="collapse" :href="'#more-infos-2-' + record.id" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    <span class="badge bg-success">@{{ record.membres.length }}</span>
+                                                    <i class="fas fa-users"></i> Membres
                                                 </a>
-                                            </span>
+                                                <a class="btn btn-app btn-sm" data-toggle="collapse" :href="'#more-infos-3-' + record.id" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                    <span class="badge bg-info">11</span>
+                                                    <i class="fa fa-comments"></i> Questionnaire
+                                                </a>
+                                            </p>
+
+                                            <div class="collapse" :id="'more-infos-1-' + record.id">
+                                                <div class="card card-body">
+                                                    <h6>Les Fichiers</h6>
+                                                    <p>
+                                                        <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-thin tw-text-gray-700 tw-mr-2 tw-mb-2">
+                                                            <a :href="record.fichieradministratifs_url" class="tw-inline-block tw-text-blue-500">
+                                                                <i class="fa fa-file-pdf-o"></i> Fichier Administratif
+                                                            </a>
+                                                        </span>
+                                                        <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-thin tw-text-gray-700 tw-mr-2 tw-mb-2">
+                                                            <a :href="record.fichierdossierscandidature_url" class="tw-inline-block tw-text-red-500">
+                                                                <i class="fa fa-file-text-o"></i> Dossier Candidature
+                                                            </a>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="collapse" :id="'more-infos-2-' + record.id">
+                                                <div class="card card-body">
+                                                    <h6>Les Membres du Groupe</h6>
+
+                                                    <ol class="list-group list-group-numbered">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-start" v-for="member in record.membres" :key="member.uuid">
+
+                                                            <div class="ms-2 me-auto">
+                                                                <div class="fw-bold tw-font-thin tw-text-xs tw-mb-2"><span class="tw-font-bold tw-text-xs tw-mb-2">@{{ member.nom }}</span> @{{ member.prenom }}</div>
+                                                                <div class="tw-font-thin tw-text-xs tw-mb-2"><i class="fa fa-calendar"></i> @{{ member.age }} ans </div>
+                                                                <div class="tw-font-thin tw-text-xs tw-mb-2"><i class="fa fa-envelope"></i> @{{ member.email }} </div>
+                                                                <div class="tw-font-thin tw-text-xs tw-mb-2"><i class="fa fa-phone"></i> @{{ member.phone }} </div>
+                                                                <div class="tw-font-thin tw-text-xs tw-mb-2"><i class="fa fa-building"></i> @{{ member.profil }} ( @{{ member.experience }} ans ) </div>
+                                                            </div>
+
+                                                        </li>
+                                                    </ol>
+
+                                                </div>
+                                            </div>
+                                            <div class="collapse" :id="'more-infos-3-' + record.id">
+                                                <div class="card card-body">
+                                                    <h6>Le Questionnaire</h6>
+
+                                                    <ol class="list-group list-group-numbered">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-start" v-for="question in {{ $questionnaire }}">
+
+                                                            <div class="ms-2 me-auto">
+                                                                <div class="fw-bold tw-font-thin tw-text-xs tw-mb-2">
+                                                                    <span class="tw-font-bold tw-text-xs tw-mb-2">@{{ question[0] }}</span>
+                                                                </div>
+                                                                <div class="tw-font-thin tw-text-xs tw-mb-2"> @{{ record[question[1]] }} </div>
+                                                            </div>
+
+                                                        </li>
+                                                    </ol>
+
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
-
-
 
                                 </div>
 

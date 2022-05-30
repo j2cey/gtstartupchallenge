@@ -14,7 +14,7 @@ class ParticipantSearch extends Search
     /**
      * @inheritDoc
      */
-    protected function query()//: Builder
+    protected function query(): Builder
     {
         $query = Participant::query();
 

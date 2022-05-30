@@ -8,9 +8,11 @@ use App\Models\Participant;
 use App\Models\StatutVideo;
 use Illuminate\Http\Request;
 use Iman\Streamer\VideoStreamer;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\SearchCollection;
 use App\Http\Requests\Participant\FetchRequest;
+use Illuminate\Contracts\Foundation\Application;
 use App\Http\Resources\Participant as ParticipantResource;
 use App\Http\Requests\Participant\CreateParticipantRequest;
 use App\Repositories\Contracts\IParticipantRepositoryContract;
@@ -39,15 +41,29 @@ class ParticipantController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|\Illuminate\Http\Response|View
      */
     public function index()
     {
         $statutvideos = StatutVideo::all();
+        $questionnaire = [
+            ['Quel est le nom de votre  projet','project_name'],
+            ['Quel est le problème que vous souhaitez resoudre?','project_problem'],
+            ['Avez-vous des chiffres ou tout autre document permettant d\'évaluer la réalité du problème','project_problem_eval'],
+            ['Comment le problème est-il résolu actuellement?','project_problem_current_solve'],
+            ['Quelle est la solution que vous proposez? (description du projet)','project_problem_solution'],
+            ['En quoi est-elle innovante?','project_problem_solution_innovative'],
+            ['Avez-vous un lien pour tester votre solution? Ou une solution similaire?','project_problem_solution_link'],
+            ['Quel est le niveau de développement de votre solution (estimez en %)','project_problem_solution_level'],
+            ['Quel est votre cible? (qui payera pour votre solution)','project_payment'],
+            ['Comment gagnerez vous de l\'argent (décrivez toutes les sources de revenus généré par votre projet)','project_money_source'],
+            ['Pourquoi êtes-vous le mieux placer pour développer cette solution?','project_team_value'],
+        ];
         return view('participants.index')
             ->with('perPage', new Collection(config('system.per_page')))
             ->with('defaultPerPage', config('system.default_per_page'))
-            ->with('statutvideos', $statutvideos);
+            ->with('statutvideos', $statutvideos)
+            ->with('questionnaire', new Collection($questionnaire));
     }
 
     /**
@@ -107,6 +123,7 @@ class ParticipantController extends Controller
             'project_payment' => $formInput['project_payment'],
             'project_money_source' => $formInput['project_money_source'],
             'project_cost' => $formInput['project_cost'],
+            'project_team_value' => $formInput['project_team_value'],
 
             'reglementvalide' => $request->getCheckValue('reglementvalide'),
         ]);
@@ -153,7 +170,7 @@ class ParticipantController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  \App\Participant  $participant
      * @return \Illuminate\Http\Response
      */
