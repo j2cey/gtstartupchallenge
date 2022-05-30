@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use App\Traits\Data\HasData;
-use Illuminate\Support\Carbon;
 use App\Traits\File\HasFile;
 use App\Traits\Video\HasVideo;
+use Illuminate\Support\Carbon;
 use OwenIt\Auditing\Contracts\Auditable;
 
 /**
@@ -60,24 +60,24 @@ class Participant extends BaseModel implements Auditable
 
     public static function defaultRules() {
         return [
-            'nom' => ['required'],
+            'nom' => ['required','max:255'],
             'email' => ['email','required'],
-            'phone' => ['required'],
+            'phone' => ['required','max:255'],
             'reglementvalide' => ['required'],
             'complementinfos' => ['max:255'],
-            'project_name' => ['required'],
-            'project_problem' => ['required'],
-            'project_problem_eval' => ['required'],
-            'project_problem_current_solve' => ['required'],
-            'project_problem_solution' => ['required'],
-            'project_problem_solution_innovative' => ['required'],
-            'project_problem_solution_link' => ['required'],
-            'project_problem_solution_level' => ['required'],
-            'project_payment' => ['required'],
-            'project_money_source' => ['required'],
-            'project_cost' => ['required'],
-            'project_team_value' => ['required'],
-            'project_team' => ['required'],
+            'project_name' => ['required','max:255'],
+            'project_problem' => ['required','max:255'],
+            'project_problem_eval' => ['required','max:255'],
+            'project_problem_current_solve' => ['required','max:255'],
+            'project_problem_solution' => ['required','max:255'],
+            'project_problem_solution_innovative' => ['required','max:255'],
+            'project_problem_solution_link' => ['required','max:255'],
+            'project_problem_solution_level' => ['required','max:255'],
+            'project_payment' => ['required','max:255'],
+            'project_money_source' => ['required','max:255'],
+            'project_cost' => ['required','max:255'],
+            'project_team_value' => ['required','max:255'],
+            'project_team' => ['required','max:255'],
         ];
     }
     public static function createRules() {
@@ -101,6 +101,7 @@ class Participant extends BaseModel implements Auditable
     public static function messagesRules() {
         return [
             'nom.required' => 'Prière de Renseigner votre Nom',
+            'nom.max' => 'Ce champs ne doit pas excéder 255 caractères !',
             'email.required' => 'Prière de Renseigner votre adresse e-mail',
             'email.email' => 'Prière de Renseigner une adresse e-mail valide',
             'phone.required' => 'Prière de Renseigner votre Numéro de Phone',
@@ -120,18 +121,43 @@ class Participant extends BaseModel implements Auditable
             'complementinfos.max' => 'Le complément d information ne peut pas excéder 255 caractères !',
 
             'project_name.required' => 'Prière de répondre à cette question',
+            'project_name.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_problem.required' => 'Prière de répondre à cette question',
+            'project_problem.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_problem_eval.required' => 'Prière de répondre à cette question',
+            'project_problem_eval.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_problem_current_solve.required' => 'Prière de répondre à cette question',
+            'project_problem_current_solve.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_problem_solution.required' => 'Prière de répondre à cette question',
+            'project_problem_solution.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_problem_solution_innovative.required' => 'Prière de répondre à cette question',
+            'project_problem_solution_innovative.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_problem_solution_link.required' => 'Prière de répondre à cette question',
+            'project_problem_solution_link.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_problem_solution_level.required' => 'Prière de répondre à cette question',
+            'project_problem_solution_level.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_payment.required' => 'Prière de répondre à cette question',
+            'project_payment.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_money_source.required' => 'Prière de répondre à cette question',
+            'project_money_source.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_cost.required' => 'Prière de répondre à cette question',
+            'project_cost.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_team_value.required' => 'Prière de répondre à cette question',
+            'project_team_value.max' => 'Ce champs ne doit pas excéder 255 caractères !',
+
             'project_team.required' => 'Prière renseigner au moins un membre',
+            'project_team.max' => 'Ce champs ne doit pas excéder 255 caractères !',
         ];
     }
 
