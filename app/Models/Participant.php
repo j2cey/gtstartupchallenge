@@ -156,7 +156,7 @@ class Participant extends BaseModel implements Auditable
             'project_team_value.required' => 'Prière de répondre à cette question',
             'project_team_value.max' => 'Ce champs ne doit pas excéder 255 caractères !',
 
-            'project_team.required' => 'Prière renseigner au moins un membre',
+            'project_team.required' => 'Prière de renseigner au moins un membre',
             'project_team.max' => 'Ce champs ne doit pas excéder 255 caractères !',
         ];
     }
