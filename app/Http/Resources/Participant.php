@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Carbon\Carbon;
 
 /**
  * Class Participant
@@ -64,7 +65,9 @@ class Participant extends JsonResource
             'membres' => ParticipantMemberResource::collection($this->members),
 
             'fichieradministratifs_url' => '/uploads/participants/fichieradministratifs/' . $this->fichier_administrative,
-            'fichierdossierscandidature_url' => '/uploads/participants/fichierdossierscandidature/' . $this->fichier_dossier_candidature,
+	    'fichierdossierscandidature_url' => '/uploads/participants/fichierdossierscandidature/' . $this->fichier_dossier_candidature,
+
+	    'created_at' => Carbon::parse($this->created_at)->format('d-m-Y H:i:s'),
 
             'edit_url' => route('participant.edit', $this->id),
             'destroy_url' => route('participant.getvideo', $this->uuid),

@@ -114,7 +114,7 @@
                                             <div class="tw-font-thin tw-text-xs tw-mb-2"><i class="fa fa-phone"></i> @{{ record.phone }}</div>
                                             <div class="tw-font-thin tw-text-xs tw-mb-2"><i class="fa fa-envelope"></i> @{{ record.email }}</div>
 
-                                            <p class="tw-text-gray-700 tw-text-base">@{{ record.complementinfos }}</p>
+                                            <p class="tw-font-thin tw-text-xs tw-mb-2">@{{ record.created_at }}</p>
                                         </div>
                                         <div class="tw-px-2 tw-py-4">
 
